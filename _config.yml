@@ -80,4 +80,4 @@ theme: landscape
 deploy:
   type: git
   repository: https://github.com/MonkeyInWind/MonkeyInWind.github.io.git
-  branch master
+  branch: master
