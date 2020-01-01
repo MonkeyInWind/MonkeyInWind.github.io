@@ -5,10 +5,11 @@ tags:
 ---
 先上效果：https://monkeyinwind.github.io/canvaspetal/index.html
 github：https://github.com/MonkeyInWind/canvaspetal
-
-这个demo写了很久了，今天有时间简单写一下过程。
-用了react，这个不重要，随便用什么环境都可以。
+<!--more-->
+这个demo写了很久了，今天有时间简单写一下过程。  
+用了react，这个不重要，随便用什么环境都可以。  
 首先花瓣要有素材，随便搜了一下，切了几个出来。
+
 ![image.png](1.png)
 
 # 1、在页面上添加一个canvas

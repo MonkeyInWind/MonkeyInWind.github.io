@@ -7,6 +7,7 @@ tags:
 ```
 brew install ffmpeg
 ```
+<!--more-->
 ### 2. 安装ffmpeg依赖  
 查看安装信息
 ```

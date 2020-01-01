@@ -3,9 +3,10 @@ title: centos 安装mysql8 以及常用sql语句
 date: 2019-09-21 12:44:34
 tags:
 ---
-安装环境：centos7
+安装环境：centos7  
 刚租了台服务器安装mysql的时候发现之前的笔记已经不合适了，更新一下。
-####mysql安装配置
+<!--more-->
+#### mysql安装配置
 1、检测是否安装过
 ```
 rpm -qa | grep mysql
@@ -18,8 +19,8 @@ rpm -e --nodeps `rpm -qa | grep mysql`
 ```
 yum -y install mysql-server
 ```
-`这里可能会找不到包，如果没有可用的包，按照如下操作`
-去这里http://repo.mysql.com/
+`这里可能会找不到包，如果没有可用的包，按照如下操作`  
+去这里http://repo.mysql.com/  
 选择最新版本的`mysql-community`的`rpm包`复制链接地址
 ```
 wget http://repo.mysql.com/mysql80-community-release-el7-1.noarch.rpm
@@ -99,7 +100,7 @@ Success.
 All done!
 ```   
 
-####常用命令
+#### 常用命令
 1、开启/关闭mysql服务
 ```
 service mysqld stop/restart
@@ -151,7 +152,7 @@ delete from 表名;
 ```
 select * from 表名;
 ```
-12、表中添加一列
+12、表中添加一列  
 如果想在一个已经建好的表中添加一列：
 ```
 alter table TABLE_NAME add column NEW_COLUMN_NAME varchar(20) not null;

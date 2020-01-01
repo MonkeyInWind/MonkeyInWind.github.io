@@ -3,7 +3,9 @@ title: flutter for web
 date: 2019-09-21 07:31:19
 tags:
 ---
-谷歌开发者大会上宣布flutter1.9正式发布，并且flutter_web已经合到dev合master。
+谷歌开发者大会上宣布flutter1.9正式发布，并且flutter_web已经合到dev合master。  
+我们来体验一下。  
+<!--more-->
 首先切换到master并升级flutter到最新版本
 ```
 flutter channel master
@@ -121,7 +123,7 @@ flutter run -d chrome
 接下来说一下调试，直接用chrome的开发者工具查找DOM是比较困难的，这个时候需要`android Studio`，在`android Studio`中打开`myapp`，设备选择`chrome(web)`，点绿色的三角跑起来
 ![image.png](3.png)
 在`View > Tool Windows`下选择`Flutter Inspector`
-![image.png](h4.png)
+![image.png](4.png)
 打开之后是这个样子
 ![image.png](5.png)
 可以看到不知道多少个层级

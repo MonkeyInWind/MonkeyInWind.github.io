@@ -3,11 +3,12 @@ title: Linux下安装Nginx
 date: 2019-09-21 10:49:23
 tags:
 ---
-1、安装依赖
+### 1、安装依赖
 ```
 yum install gcc zlib zlib-devel pcre-devel openssl openssl-devel
 ```
-2、下载安装包
+<!--more-->
+### 2、下载安装包
 ```
 cd /usr/local
 ```
@@ -16,7 +17,8 @@ http://nginx.org/download/
 ```
 wget http://nginx.org/download/nginx-1.9.9.tar.gz
 ```
-3、安装
+
+### 3、安装
 解压到当前文件夹
 ```
 tar -xvf nginx-1.9.9.tar.gz
@@ -39,7 +41,7 @@ cd nginx/sbin
 nginx: the configuration file /usr/local/nginx/conf/nginx.conf syntax is ok
 nginx: configuration file /usr/local/nginx/conf/nginx.conf test is successful
 ```
-4、常用命令
+### 4、常用命令
 安装路径 `/usr/local/nginx` 下
 
 开启：
