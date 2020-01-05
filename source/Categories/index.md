@@ -1,23 +1,26 @@
 ## Flutter
 ### ~笔记
-[官方示例&代码解读](/post/officialExample)
-[hello world和文本组件Text、TextSpan](/post/textWidget)
-[容器组件Container](/post/containerWidget)
-[图片Image](/post/imageWidget)
-[图标Icon](/post/iconWidget)
-[按钮 各种Button](/post/buttonWidget)
-[复选框CheckBox、CheckboxListTile](/post/checkWidget)
+[1、官方示例&代码解读](/post/flutterOfficialExample)
+[2、hello world和文本组件Text、TextSpan](/post/flutterTextWidget)
+[3、容器组件Container](/post/flutterContainerWidget)
+[4、图片Image](/post/flutterImageWidget)
+[5、图标Icon](/post/flutterIconWidget)
+[6、按钮 各种Button](/post/flutterButtonWidget)
+[7、复选框CheckBox、CheckboxListTile](/post/flutterCheckWidget)
+[8、单选开关Switch、SwitchListTile](/post/flutterSwitchWidget)
+[9、单选框Radio、RadioListTile](/post/flutterRadioWidget)
+[10、输入框TextField](/post/flutterTextFieldWidget)
 ### ~other
-[flutter for web](/post/flutterForWeb)
+[1、flutter for web](/post/flutterForWeb)
 ## React
-[react-router刷新404 nginx配置](/post/reactRouterNginx)
+[1、react-router刷新404 nginx配置](/post/reactRouterNginx)
 ## Js
-[视频切片转m3u8](/post/videoToM3U8)
-[一个移动端翻页的封装](/post/likeSwiper)
-[花瓣飘落效果](/post/petalsFluttered)
+[1、视频切片转m3u8](/post/videoToM3U8)
+[2、一个移动端翻页的封装](/post/likeSwiper)
+[3、花瓣飘落效果](/post/petalsFluttered)
 ## DB
-[centos 安装mysql8 以及常用sql语句](/post/centOsInstallMysql)
-[mac Mysql8密码](/post/macMysql8Password)
+[1、centos 安装mysql8 以及常用sql语句](/post/centOsInstallMysql)
+[2、mac Mysql8密码](/post/macMysql8Password)
 ## Nginx
-[react-router刷新404 nginx配置](/post/reactRouterNginx)
-[Linux下安装Nginx](/post/installNginxLinux)
+[1、react-router刷新404 nginx配置](/post/reactRouterNginx)
+[2、Linux下安装Nginx](/post/installNginxLinux)

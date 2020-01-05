@@ -6,7 +6,7 @@ tags:
 flutter提供了以下几种按钮  
 `RaisedButton 、OutlineButton 、FlatButton 、IconButton 、FloatingActionButton 、MaterialButton` 。  
 <!--more-->
-其中`IconButton`在[图标Icon](/post/iconWidget)里已经说过了，这里就不重复了。  
+其中`IconButton`在[图标Icon](/post/flutterIconWidget)里已经说过了，这里就不重复了。  
 接下来挨个看一下。
 
 ## 一、MaterialButton
@@ -144,7 +144,7 @@ const ContinuousRectangleBorder({
 可以看见，除了`CircleBorder`其他三个都是一样的，为啥这个特殊，少了个属性？  
 因为`CircleBorder`是设置按钮为圆形，`borderRadius`是圆角，根本不需要。。。  
 下面看一下怎么用：  
-`borderRadius`之前的笔记介绍过[容器组件Container](/post/containerWidget)，这里就不重复了，看一下demo。
+`borderRadius`之前的笔记介绍过[容器组件Container](/post/flutterContainerWidget)，这里就不重复了，看一下demo。
 ```
 new RaisedButton(
   child: new Text('button'),
