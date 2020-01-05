@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    按钮 各种Button |  MonkeyInWind
+  </title>
+  
+  <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+
+  
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-155359064-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content">
+      <section class="outer">
+  <article id="post-buttonWidget" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  按钮 各种Button
+</h1>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/post/buttonWidget/" class="article-date">
+  <time datetime="2020-01-05T11:20:10.000Z" itemprop="datePublished">2020-01-05</time>
+</a>
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <p>flutter提供了以下几种按钮<br><code>RaisedButton 、OutlineButton 、FlatButton 、IconButton 、FloatingActionButton 、MaterialButton</code> 。  </p>
+<a id="more"></a>
+<p>其中<code>IconButton</code>在<a href="/post/iconWidget">图标Icon</a>里已经说过了，这里就不重复了。<br>接下来挨个看一下。</p>
+<h2 id="一、MaterialButton"><a href="#一、MaterialButton" class="headerlink" title="一、MaterialButton"></a>一、MaterialButton</h2><p>悬浮按钮自带灰色背景和灰色阴影，按下时阴影变大。<br>首先还是看一下<code>constructor</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">const MaterialButton(&#123;</span><br><span class="line">  Key key,</span><br><span class="line">  @required VoidCallback onPressed,              //点击按钮的回调函数</span><br><span class="line">  ValueChanged&lt;bool&gt; onHighlightChanged,         //高亮变化的回调</span><br><span class="line">  ButtonTextTheme textTheme,                     //按钮的字体主题</span><br><span class="line">  Color textColor,                               //字体颜色</span><br><span class="line">  Color disabledTextColor,                      //禁用时的字体颜色</span><br><span class="line">  Color color,                                  //按钮背景色</span><br><span class="line">  Color disabledColor,                          //禁用时的背景色</span><br><span class="line">  Color focusColor,                              //联动节点获得焦点时的颜色</span><br><span class="line">  Color hoverColor,                              //鼠标悬停时的颜色</span><br><span class="line">  Color highlightColor,                          //按下背景颜色（长按，不是点击）</span><br><span class="line">  Color splashColor,                            //水波纹颜色</span><br><span class="line">  Brightness colorBrightness,                   //按钮亮度</span><br><span class="line">  double elevation,                              //阴影尺寸</span><br><span class="line">  double focusElevation,                        //联动节点获得焦点时的阴影尺寸</span><br><span class="line">  double hoverElevation,                        //鼠标悬停时阴影尺寸</span><br><span class="line">  double highlightElevation,                    //长按阴影尺寸</span><br><span class="line">  double disabledElevation,                    //禁用时的阴影尺寸</span><br><span class="line">  EdgeInsetsGeometry padding,                  //内边距</span><br><span class="line">  ShapeBorder shape,                            //按钮的形状</span><br><span class="line">  Clip clipBehavior: Clip.none,                //裁剪</span><br><span class="line">  FocusNode focusNode,                         //联动节点</span><br><span class="line">  MaterialTapTargetSize materialTapTargetSize,  //有效的点击区域大小</span><br><span class="line">  Duration animationDuration,                  //动画时间  </span><br><span class="line">  double minWidth,                              //最小宽</span><br><span class="line">  double hight,                                //高度</span><br><span class="line">  Widget child                                  //子节点</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>下面看demo</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">import &apos;package:flutter/material.dart&apos;;</span><br><span class="line"></span><br><span class="line">void main() =&gt; runApp(MyApp());</span><br><span class="line"></span><br><span class="line">class MyApp extends StatelessWidget &#123;</span><br><span class="line">  // This widget is the root of your application.</span><br><span class="line">  @override</span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    return MaterialApp(</span><br><span class="line">      title: &apos;Flutter Demo&apos;,</span><br><span class="line">      home: Scaffold(</span><br><span class="line">        body: new Container(</span><br><span class="line">          alignment: Alignment.center,</span><br><span class="line">          child: new MaterialButton(</span><br><span class="line">            child: new Text(&apos;Button&apos;),</span><br><span class="line">            textTheme: ButtonTextTheme.primary,</span><br><span class="line">            textColor: Colors.red,</span><br><span class="line">            highlightColor: Colors.yellow,</span><br><span class="line">            color: Colors.green,</span><br><span class="line">            splashColor: Colors.purple,</span><br><span class="line">            elevation: 10.0,</span><br><span class="line">            highlightElevation: 20.0,</span><br><span class="line">            padding: EdgeInsets.all(20.0),</span><br><span class="line">            onHighlightChanged: (data) &#123;</span><br><span class="line">              print(data);</span><br><span class="line">            &#125;,</span><br><span class="line">            onPressed: () &#123;</span><br><span class="line">              print(1);</span><br><span class="line">            &#125;,</span><br><span class="line">          )</span><br><span class="line">        )</span><br><span class="line">      )</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>一个花里胡哨的按钮，下面挨个属性看一下，看效果的话不要像上边一样同时写太多，建议每次只写一个。</p>
+<h3 id="onPressed"><a href="#onPressed" class="headerlink" title="onPressed"></a>onPressed</h3><p>这个没啥说的，按钮的回调，手指抬起时触发，点击或者长按都会触发。<br><code>********特别提醒，值为null的时候，按钮为禁用状态。</code></p>
+<h3 id="onHighlightChanged"><a href="#onHighlightChanged" class="headerlink" title="onHighlightChanged"></a>onHighlightChanged</h3><p>和<code>onPressed</code>不同，这个按下按钮和松开按钮都会触发，有一个参数，按下为true，松开为false。</p>
+<h3 id="textTheme"><a href="#textTheme" class="headerlink" title="textTheme"></a>textTheme</h3><p>有三个值<br><code>normal</code>：没看出来有啥效果。<br><code>primary</code>：没看出来有啥效果+1。<br><code>accent</code>：字体变成了主题同一颜色。  </p>
+<h3 id="textColor"><a href="#textColor" class="headerlink" title="textColor"></a>textColor</h3><p>字体颜色，如果<code>Text</code>的<code>style</code>设置了<code>color</code>，则显示为<code>Text</code>设置的值。</p>
+<h3 id="color"><a href="#color" class="headerlink" title="color"></a>color</h3><p>背景色</p>
+<h3 id="focusColor-amp-focusElevation-amp-focusNode"><a href="#focusColor-amp-focusElevation-amp-focusNode" class="headerlink" title="focusColor &amp; focusElevation &amp; focusNode"></a>focusColor &amp; focusElevation &amp; focusNode</h3><p>还没试，看文档的意思是需要一个联动元素，比如输入框，获得焦点的时候按钮改变状态。</p>
+<h3 id="disabledTextColor-amp-disabledTextColor-amp-disabledElevation"><a href="#disabledTextColor-amp-disabledTextColor-amp-disabledElevation" class="headerlink" title="disabledTextColor &amp; disabledTextColor &amp; disabledElevation"></a>disabledTextColor &amp; disabledTextColor &amp; disabledElevation</h3><p>禁用时按钮的状态，不挨个说了，和非禁用状态写法一样。<br><code>按钮是否禁用，没有单独的属性，看onPressed，如果为null，或者不写onPressed则为禁用。</code></p>
+<h3 id="hoverColor"><a href="#hoverColor" class="headerlink" title="hoverColor"></a>hoverColor</h3><p>推测是桌面端和web端用的，移动端不知道怎么触发hover。</p>
+<h3 id="highlightColor"><a href="#highlightColor" class="headerlink" title="highlightColor"></a>highlightColor</h3><p>按钮按下的背景色，不是点击是长按。</p>
+<h3 id="splashColor"><a href="#splashColor" class="headerlink" title="splashColor"></a>splashColor</h3><p>水波纹的颜色，这个是点击</p>
+<h3 id="colorBrightness"><a href="#colorBrightness" class="headerlink" title="colorBrightness"></a>colorBrightness</h3><p>亮度有两个值：<br><code>Brightness.light</code>：默认的状态，文字黑色，<code>splashColor&amp;highlightColor</code>都是灰色。<br><code>Brightness.dark</code>：文字白色，<code>splashColor&amp;highlightColor</code>变亮了？？？<br>你没看错，是不是写反了，这是个bug？<br>这不是个bug，这里的<code>colorBrightness</code>是整个主题的亮度，当app主题亮度为<code>Brightness.light</code>的时候，在这里也设成<code>light</code>，按钮会变暗；相反如果主题亮度为<code>Brightness.dark</code>，这里也设成<code>dark</code>，按钮会变亮。<br>这是个坑。。。从字面意思来看，谁能看出来这是主题亮度。  </p>
+<h3 id="elevation-amp-highlightElevation"><a href="#elevation-amp-highlightElevation" class="headerlink" title="elevation &amp; highlightElevation"></a>elevation &amp; highlightElevation</h3><p>double类型，阴影和按下按钮状态下的阴影尺寸。</p>
+<h3 id="padding"><a href="#padding" class="headerlink" title="padding"></a>padding</h3><p>这个之前介绍过，就不重复了。</p>
+<h3 id="shape"><a href="#shape" class="headerlink" title="shape"></a>shape</h3><p>基于<code>ShapeBorder</code>的类有四个，下面看一下这四个类。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//圆形</span><br><span class="line">const CircleBorder(&#123;</span><br><span class="line">  BorderSide side: BorderSide.none</span><br><span class="line">&#125;)</span><br><span class="line">//斜角（了解过机械的话可以理解成倒角）</span><br><span class="line">const BeveledRectangleBorder(&#123;</span><br><span class="line">  BorderSide side: BorderSide.none,</span><br><span class="line">  BorderRadiusGeometry borderRadius: BorderRadius.zero</span><br><span class="line">&#125;)</span><br><span class="line">//圆角</span><br><span class="line">const RoundedRectangleBorder(&#123;</span><br><span class="line">  BorderSide side: BorderSide.none,</span><br><span class="line">  BorderRadiusGeometry borderRadius: BorderRadius.zero</span><br><span class="line">&#125;)</span><br><span class="line">//也是圆角，但是和RoundedRectangleBorder不同，有最大值，超过最大值以最大值显示。</span><br><span class="line">const ContinuousRectangleBorder(&#123;</span><br><span class="line">  BorderSide side: BorderSide.none,</span><br><span class="line">  BorderRadiusGeometry borderRadius: BorderRadius.zero</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>可以看见，除了<code>CircleBorder</code>其他三个都是一样的，为啥这个特殊，少了个属性？<br>因为<code>CircleBorder</code>是设置按钮为圆形，<code>borderRadius</code>是圆角，根本不需要。。。<br>下面看一下怎么用：<br><code>borderRadius</code>之前的笔记介绍过<a href="/post/containerWidget">容器组件Container</a>，这里就不重复了，看一下demo。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">new RaisedButton(</span><br><span class="line">  child: new Text(&apos;button&apos;),</span><br><span class="line">  color: Colors.grey[200],</span><br><span class="line">  shape: ContinuousRectangleBorder(</span><br><span class="line">    borderRadius: BorderRadius.circular(10.0),</span><br><span class="line">   ),</span><br><span class="line">   onPressed: () &#123;</span><br><span class="line">     print(1);</span><br><span class="line">  &#125;,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>这样就给按钮加了圆角。<br>下面看一下<code>BorderSide</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">const BorderSide(&#123;</span><br><span class="line">  Color color: const Color(0xFF000000),</span><br><span class="line">  double width: 1.0,</span><br><span class="line">  BorderStyle style: BorderStyle.solid</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>这个就比较简单了，之前的也都介绍过这几个属性。</p>
+<h3 id="clipBehavior"><a href="#clipBehavior" class="headerlink" title="clipBehavior"></a>clipBehavior</h3><p>裁剪，有四个值<code>antiAlias、antiAliasWithSaveLayer 、hardEdge、none</code>，都是对边缘的处理，看文档说<code>antiAlias</code>处理速度要比<code>antiAliasWithSaveLayer</code>快，但是要比<code>hardEdge</code>慢，还没整明白怎么用，以后补充。</p>
+<h3 id="materialTapTargetSize"><a href="#materialTapTargetSize" class="headerlink" title="materialTapTargetSize"></a>materialTapTargetSize</h3><p><code>padded</code>：有效点击区域最小为<code>48px * 48px</code>。<br><code>shrinkWrap</code>：可点击组件的大小。</p>
+<h3 id="animationDuration"><a href="#animationDuration" class="headerlink" title="animationDuration"></a>animationDuration</h3><p>设置<code>shape</code>和<code>elevation</code>的动画时间，看一下怎么用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">new MaterialButton(</span><br><span class="line">  child: new Text(&apos;button&apos;),</span><br><span class="line">  color: Colors.grey[200],</span><br><span class="line">  animationDuration: new Duration(seconds: 10),</span><br><span class="line">  highlightElevation: 200.0,</span><br><span class="line">  textTheme: ButtonTextTheme.accent,</span><br><span class="line">  onPressed: () &#123;</span><br><span class="line">    print(1);</span><br><span class="line">  &#125;,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>这里为了效果明显值写的都比较大，按住按钮不要松手可以看到阴影逐渐变大。<br><code>Duration</code>不只可以写<code>seconds</code>，<code>days、hours、minutes、seconds、milliseconds、microseconds</code>都可以。<br>想不出来在什么情况下一个动画会以天为时间单位。。。</p>
+<h3 id="minWidth-amp-height"><a href="#minWidth-amp-height" class="headerlink" title="minWidth &amp; height"></a>minWidth &amp; height</h3><p>最小宽度和高度。</p>
+<h3 id="child"><a href="#child" class="headerlink" title="child"></a>child</h3><p>子节点。</p>
+<h2 id="二、OutlineButton"><a href="#二、OutlineButton" class="headerlink" title="二、OutlineButton"></a>二、OutlineButton</h2><p>默认有一个边框，不带阴影且背景透明。按下后，边框颜色会变亮、同时出现背景和阴影(较弱)。<br>看一下<code>constructor</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">const OutlineButton(&#123;</span><br><span class="line">  Key key,</span><br><span class="line">  @required VoidCallback onPressed,</span><br><span class="line">  ButtonTextTheme textTheme,</span><br><span class="line">  Color textColor,     </span><br><span class="line">  Color disabledTextColor,    </span><br><span class="line">  Color color,  </span><br><span class="line">  Color focusColor,  </span><br><span class="line">  Color hoverColor,   </span><br><span class="line">  Color highlightColor,</span><br><span class="line">  Color splashColor,  </span><br><span class="line">  double highlightElevation,</span><br><span class="line">  BorderSide borderSide,</span><br><span class="line">  Color disabledBorderColor,</span><br><span class="line">  Color highlightedBorderColor,</span><br><span class="line">  EdgeInsetsGeometry padding,</span><br><span class="line">  ShapeBorder shape,</span><br><span class="line">  Clip clipBehavior,</span><br><span class="line">  FocusNode focusNode,</span><br><span class="line">  Widget child</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>和<code>RaisedButton</code>相同的就不说了，这里说一下<code>RaisedButton</code>没有的。<br>啥是<code>RaisedButton</code>没有的，自己写一下就知道了，多了个边框。。。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">import &apos;package:flutter/material.dart&apos;;</span><br><span class="line"></span><br><span class="line">void main() =&gt; runApp(MyApp());</span><br><span class="line"></span><br><span class="line">class MyApp extends StatelessWidget &#123;</span><br><span class="line">  // This widget is the root of your application.</span><br><span class="line">  @override</span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    return MaterialApp(</span><br><span class="line">      title: &apos;Flutter Demo&apos;,</span><br><span class="line">      home: Scaffold(</span><br><span class="line">        body: new Container(</span><br><span class="line">          alignment: Alignment.center,</span><br><span class="line">          child: new OutlineButton(</span><br><span class="line">            child: new Text(&apos;Button&apos;),</span><br><span class="line">            borderSide: BorderSide(color: Colors.red, width: 4.0, style: BorderStyle.solid),</span><br><span class="line">//            disabledBorderColor: Colors.blue,</span><br><span class="line">            onPressed: () &#123;</span><br><span class="line">              print(1);</span><br><span class="line">            &#125;</span><br><span class="line">          )</span><br><span class="line">        )</span><br><span class="line">      )</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="disabledBorderColor"><a href="#disabledBorderColor" class="headerlink" title="disabledBorderColor"></a>disabledBorderColor</h3><p>禁用时边框颜色，默认为灰色。</p>
+<h3 id="borderSide"><a href="#borderSide" class="headerlink" title="borderSide"></a>borderSide</h3><p>边框样式，<code>color</code>和<code>width</code>没啥说的，一个颜色一个宽度，<code>style</code>要说一下，这个只有<code>solid</code>和<code>none</code>，也就是说只有实线边框和没有边框。</p>
+<p>另外这个按钮和<code>MaterialButton</code>相比少了几个属性，对比看吧这里就不列出来了。</p>
+<h2 id="三、RaisedButton"><a href="#三、RaisedButton" class="headerlink" title="三、RaisedButton"></a>三、RaisedButton</h2><p>和<code>MaterialButton</code>默认样式不同，默认带有阴影和灰色背景。按下后，阴影会变大没有<code>height</code>和<code>minWidth</code>。</p>
+<h2 id="四、FlatButton"><a href="#四、FlatButton" class="headerlink" title="四、FlatButton"></a>四、FlatButton</h2><p>扁平按钮，默认背景透明并不带阴影。按下后，会有背景色。<br>和<code>MaterialButton</code>相比少了以下属性：<code>elevation、focusElevation 、hoverElevation 、highlightElevation 、disabledElevation 、animationDuration 、minWidth 、height</code>。</p>
+<h2 id="五、FloatingActionButton"><a href="#五、FloatingActionButton" class="headerlink" title="五、FloatingActionButton"></a>五、FloatingActionButton</h2><p>页面的悬浮按钮。<br>看一下<code>constructor</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">const FloatingActionButton(&#123;</span><br><span class="line">  Key key,</span><br><span class="line">  Widget child,</span><br><span class="line">  String tooltip,</span><br><span class="line">  Color foregroundColor,          //前景色，不会覆盖文字，加了之后改变了文字的颜色</span><br><span class="line">  Color backgroundColor,        //背景色</span><br><span class="line">  Color focusColor,</span><br><span class="line">  Color hoverColor,</span><br><span class="line">  Object heroTag: const _DefaultHeroTag(),      //动画效果</span><br><span class="line">  double elevation,</span><br><span class="line">  double focusElevation,</span><br><span class="line">  double hoverElevation,</span><br><span class="line">  double highlightElevation,  </span><br><span class="line">  double disabledElevation,   </span><br><span class="line">  @required VoidCallback onPressed,</span><br><span class="line">  bool mini: false,                    //为true时按钮尺寸会变小</span><br><span class="line">  ShapeBorder shape,</span><br><span class="line">  Clip clipBehavior: Clip.none,</span><br><span class="line">  FocusNode focusNode,</span><br><span class="line">  MaterialTapTargetSize materialTapTargetSize,</span><br><span class="line">  bool isExtended: false              //是否扩展</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>什么前景色背景色就不说了，说一下没见过的。</p>
+<h3 id="heroTag"><a href="#heroTag" class="headerlink" title="heroTag"></a>heroTag</h3><p>设置为null，则不启用过渡动画，如果悬浮按钮在两个页面内的位置不同，页面切换时动作生硬。不设置的话为默认值，平滑过渡。</p>
+<h3 id="mini"><a href="#mini" class="headerlink" title="mini"></a>mini</h3><p>为<code>true</code>时为按钮会缩小，但是要注意的是，这个缩小只是尺寸缩小，不是整体缩放，内容大小还是需要手动设置。</p>
+<h3 id="isExtended"><a href="#isExtended" class="headerlink" title="isExtended"></a>isExtended</h3><p>是否扩展，默认为false。<br>不知道怎么用，但是发现个特性。</p>
+<p>把<code>FloatingActionButton</code>写在<code>Container</code>里，同时<code>Container</code>不写<code>alignment</code>，并且<code>Container</code>设有<code>width</code>和<code>height</code>。<br><code>false</code>：按钮会尽量放大到宽高为<code>width&amp;height</code>之中小的那个尺寸，并保持圆形。<br><code>true</code>：按钮宽高会变成<code>Container</code>的宽高，不会保持圆形，但是有圆角。<br>为啥要说写在<code>Container</code>里，因为这货就不是用在<code>Container</code>里的。。。<br>怎么用往下看</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">import &apos;package:flutter/material.dart&apos;;</span><br><span class="line"></span><br><span class="line">void main() =&gt; runApp(MyApp());</span><br><span class="line"></span><br><span class="line">class MyApp extends StatelessWidget &#123;</span><br><span class="line">  // This widget is the root of your application.</span><br><span class="line">  @override</span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    return new MaterialApp(</span><br><span class="line">      home: Scaffold(</span><br><span class="line">        floatingActionButton: FloatingActionButton(</span><br><span class="line">          onPressed: () &#123;</span><br><span class="line">             print(1);</span><br><span class="line">          &#125;,</span><br><span class="line">          child: Icon(Icons.add)</span><br><span class="line">        ),</span><br><span class="line">      )</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这才是常规用法，默认悬浮在右下角，不影响布局。<br>你说不想放右下角？可以，放哪都行，但是我不打算在这写，因为这个位置不是在按钮这设置的。</p>
+<p>如有错误欢迎指出，很多不足欢迎补充。</p>
+
+      
+      <!-- 打赏 -->
+      
+    </div>
+    <footer class="article-footer">
+      <!-- 
+      <a data-url="http://yoursite.com/post/buttonWidget/" data-id="ck50xtj7w000eu9hspyz8mpge"
+        class="article-share-link">分享</a>
+      
+       -->
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+      <a href="/post/checkWidget/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            复选框CheckBox、CheckboxListTile
+          
+        </div>
+      </a>
+    
+    
+      <a href="/post/iconWidget/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">图标Icon</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: '',
+        app_key: '',
+        path: window.location.pathname,
+        avatar: 'mp',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>
+        &copy;
+        2020-01
+        MonkeyInWind
+      </li>
+      <li>
+        <!--
+        
+          Power by
+        
+        
+        <a href="https://hexo.io" target="_blank">Hexo</a> Theme <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+        -->
+        <a target="_blank" href='https://github.com/MonkeyInWind'>GitHub</a>
+      </li>
+    </ul>
+    <ul class="list-inline">
+      <li>
+        
+      </li>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+
+    <div class="to_top">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+      </div>
+    </main>
+    
+    <aside class="sidebar">
+      
+        <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/logo.png" alt="MonkeyInWind"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">目录</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/Categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/About">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+      </aside>
+      <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+      <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/tocbot.min.js"></script>
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  </script>
+
+
+<script>
+  var ayerConfig = {
+    mathjax: false
+  }
+</script>
+
+<script src="/js/ayer.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+  
+  
+  </div>
+</body>
+
+</html>
