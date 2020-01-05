@@ -39,7 +39,7 @@ ga('send', 'pageview');
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-buttonWidget" class="article article-type-post" itemscope
+  <article id="post-flutterButtonWidget" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -56,7 +56,7 @@ ga('send', 'pageview');
 
     
     <div class="article-meta">
-      <a href="/post/buttonWidget/" class="article-date">
+      <a href="/post/flutterButtonWidget/" class="article-date">
   <time datetime="2020-01-05T11:20:10.000Z" itemprop="datePublished">2020-01-05</time>
 </a>
       
@@ -82,7 +82,7 @@ ga('send', 'pageview');
       
       <p>flutter提供了以下几种按钮<br><code>RaisedButton 、OutlineButton 、FlatButton 、IconButton 、FloatingActionButton 、MaterialButton</code> 。  </p>
 <a id="more"></a>
-<p>其中<code>IconButton</code>在<a href="/post/iconWidget">图标Icon</a>里已经说过了，这里就不重复了。<br>接下来挨个看一下。</p>
+<p>其中<code>IconButton</code>在<a href="/post/flutterIconWidget">图标Icon</a>里已经说过了，这里就不重复了。<br>接下来挨个看一下。</p>
 <h2 id="一、MaterialButton"><a href="#一、MaterialButton" class="headerlink" title="一、MaterialButton"></a>一、MaterialButton</h2><p>悬浮按钮自带灰色背景和灰色阴影，按下时阴影变大。<br>首先还是看一下<code>constructor</code>。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">const MaterialButton(&#123;</span><br><span class="line">  Key key,</span><br><span class="line">  @required VoidCallback onPressed,              //点击按钮的回调函数</span><br><span class="line">  ValueChanged&lt;bool&gt; onHighlightChanged,         //高亮变化的回调</span><br><span class="line">  ButtonTextTheme textTheme,                     //按钮的字体主题</span><br><span class="line">  Color textColor,                               //字体颜色</span><br><span class="line">  Color disabledTextColor,                      //禁用时的字体颜色</span><br><span class="line">  Color color,                                  //按钮背景色</span><br><span class="line">  Color disabledColor,                          //禁用时的背景色</span><br><span class="line">  Color focusColor,                              //联动节点获得焦点时的颜色</span><br><span class="line">  Color hoverColor,                              //鼠标悬停时的颜色</span><br><span class="line">  Color highlightColor,                          //按下背景颜色（长按，不是点击）</span><br><span class="line">  Color splashColor,                            //水波纹颜色</span><br><span class="line">  Brightness colorBrightness,                   //按钮亮度</span><br><span class="line">  double elevation,                              //阴影尺寸</span><br><span class="line">  double focusElevation,                        //联动节点获得焦点时的阴影尺寸</span><br><span class="line">  double hoverElevation,                        //鼠标悬停时阴影尺寸</span><br><span class="line">  double highlightElevation,                    //长按阴影尺寸</span><br><span class="line">  double disabledElevation,                    //禁用时的阴影尺寸</span><br><span class="line">  EdgeInsetsGeometry padding,                  //内边距</span><br><span class="line">  ShapeBorder shape,                            //按钮的形状</span><br><span class="line">  Clip clipBehavior: Clip.none,                //裁剪</span><br><span class="line">  FocusNode focusNode,                         //联动节点</span><br><span class="line">  MaterialTapTargetSize materialTapTargetSize,  //有效的点击区域大小</span><br><span class="line">  Duration animationDuration,                  //动画时间  </span><br><span class="line">  double minWidth,                              //最小宽</span><br><span class="line">  double hight,                                //高度</span><br><span class="line">  Widget child                                  //子节点</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
@@ -106,7 +106,7 @@ ga('send', 'pageview');
 <h3 id="shape"><a href="#shape" class="headerlink" title="shape"></a>shape</h3><p>基于<code>ShapeBorder</code>的类有四个，下面看一下这四个类。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//圆形</span><br><span class="line">const CircleBorder(&#123;</span><br><span class="line">  BorderSide side: BorderSide.none</span><br><span class="line">&#125;)</span><br><span class="line">//斜角（了解过机械的话可以理解成倒角）</span><br><span class="line">const BeveledRectangleBorder(&#123;</span><br><span class="line">  BorderSide side: BorderSide.none,</span><br><span class="line">  BorderRadiusGeometry borderRadius: BorderRadius.zero</span><br><span class="line">&#125;)</span><br><span class="line">//圆角</span><br><span class="line">const RoundedRectangleBorder(&#123;</span><br><span class="line">  BorderSide side: BorderSide.none,</span><br><span class="line">  BorderRadiusGeometry borderRadius: BorderRadius.zero</span><br><span class="line">&#125;)</span><br><span class="line">//也是圆角，但是和RoundedRectangleBorder不同，有最大值，超过最大值以最大值显示。</span><br><span class="line">const ContinuousRectangleBorder(&#123;</span><br><span class="line">  BorderSide side: BorderSide.none,</span><br><span class="line">  BorderRadiusGeometry borderRadius: BorderRadius.zero</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
-<p>可以看见，除了<code>CircleBorder</code>其他三个都是一样的，为啥这个特殊，少了个属性？<br>因为<code>CircleBorder</code>是设置按钮为圆形，<code>borderRadius</code>是圆角，根本不需要。。。<br>下面看一下怎么用：<br><code>borderRadius</code>之前的笔记介绍过<a href="/post/containerWidget">容器组件Container</a>，这里就不重复了，看一下demo。</p>
+<p>可以看见，除了<code>CircleBorder</code>其他三个都是一样的，为啥这个特殊，少了个属性？<br>因为<code>CircleBorder</code>是设置按钮为圆形，<code>borderRadius</code>是圆角，根本不需要。。。<br>下面看一下怎么用：<br><code>borderRadius</code>之前的笔记介绍过<a href="/post/flutterContainerWidget">容器组件Container</a>，这里就不重复了，看一下demo。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">new RaisedButton(</span><br><span class="line">  child: new Text(&apos;button&apos;),</span><br><span class="line">  color: Colors.grey[200],</span><br><span class="line">  shape: ContinuousRectangleBorder(</span><br><span class="line">    borderRadius: BorderRadius.circular(10.0),</span><br><span class="line">   ),</span><br><span class="line">   onPressed: () &#123;</span><br><span class="line">     print(1);</span><br><span class="line">  &#125;,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
 <p>这样就给按钮加了圆角。<br>下面看一下<code>BorderSide</code></p>
@@ -151,7 +151,7 @@ ga('send', 'pageview');
     </div>
     <footer class="article-footer">
       <!-- 
-      <a data-url="http://yoursite.com/post/buttonWidget/" data-id="ck50xtj7w000eu9hspyz8mpge"
+      <a data-url="http://yoursite.com/post/flutterButtonWidget/" data-id="ck50z6kdc000gzphs24oj4wra"
         class="article-share-link">分享</a>
       
        -->
@@ -163,7 +163,7 @@ ga('send', 'pageview');
   
   <nav class="article-nav">
     
-      <a href="/post/checkWidget/" class="article-nav-link">
+      <a href="/post/flutterCheckWidget/" class="article-nav-link">
         <strong class="article-nav-caption">上一篇</strong>
         <div class="article-nav-title">
           
@@ -173,7 +173,7 @@ ga('send', 'pageview');
       </a>
     
     
-      <a href="/post/iconWidget/" class="article-nav-link">
+      <a href="/post/flutterIconWidget/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
         <div class="article-nav-title">图标Icon</div>
       </a>
