@@ -81,3 +81,9 @@ deploy:
   type: git
   repository: https://github.com/MonkeyInWind/MonkeyInWind.github.io.git
   branch: master
+
+# Hexo-generator-search
+search:
+  path: search.xml
+  field: post
+  format: html
