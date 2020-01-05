@@ -1,5 +1,5 @@
 ## Flutter
-### ~笔记
+### ～笔记
 [1、官方示例&代码解读](/post/flutterOfficialExample)
 [2、hello world和文本组件Text、TextSpan](/post/flutterTextWidget)
 [3、容器组件Container](/post/flutterContainerWidget)
@@ -10,7 +10,9 @@
 [8、单选开关Switch、SwitchListTile](/post/flutterSwitchWidget)
 [9、单选框Radio、RadioListTile](/post/flutterRadioWidget)
 [10、输入框TextField](/post/flutterTextFieldWidget)
-### ~other
+### ～demo
+[1、模拟登录](/post/flutterDemoMockLogin)
+### ～other
 [1、flutter for web](/post/flutterForWeb)
 ## React
 [1、react-router刷新404 nginx配置](/post/reactRouterNginx)
