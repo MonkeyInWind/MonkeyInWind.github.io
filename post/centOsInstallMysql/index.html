@@ -1,295 +1,88 @@
 <!DOCTYPE html>
-<!--[if lte IE 8 ]>
-<html class="ie" xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US" lang="en-US">
-<![endif]-->
-<!--[if (gte IE 9)|!(IE)]><!-->
-<!--
-***************  *      *     *
-      8          *    *       *
-      8          *  *         *
-      8          **           *
-      8          *  *         *
-      8          *    *       *
-      8          *      *     *
-      8          *        *   ***********    -----Theme By Kieran(http://go.kieran.top)
--->
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN">
-<!--<![endif]-->
+<html lang="en">
 
-<head>
-  <title>centos 安装mysql8 以及常用sql语句 | MonkeyInWind</title>
-  <!-- Meta data -->
-    <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="generator" content="MonkeyInWind">
-    <meta name="author" content="John Doe">
-    <meta name="description" content="" />
-    <meta name="keywords" content="" />
-
-    <!-- Favicon, (keep icon in root folder) -->
-    <link rel="Shortcut Icon" href="/img/favicon.ico" type="image/ico">
-
-    <link rel="alternate" href="/atom.xml" title="MonkeyInWind" type="application/atom+xml">
-    <link rel="stylesheet" href="/css/all.css" media="screen" type="text/css">
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
     
-    <link rel="stylesheet" href="/highlightjs/vs.css" type="text/css">
-    
-
-    <!--[if IE 8]>
-    <link rel="stylesheet" type="text/css" href="/css/ie8.css" />
-    <![endif]-->
-
-    <!-- jQuery | Load our jQuery, with an alternative source fallback to a local version if request is unavailable -->
-    <script src="/js/jquery-1.11.1.min.js"></script>
-    <script>window.jQuery || document.write('<script src="js/jquery-1.11.1.min.js"><\/script>')</script>
-
-    <!-- Load these in the <head> for quicker IE8+ load times -->
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-    <script src="/js/html5shiv.min.js"></script>
-    <script src="/js/respond.min.js"></script>
-    <![endif]-->
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    centos 安装mysql8 以及常用sql语句 |  MonkeyInWind
+  </title>
+  
+  <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
 
   
-  
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-155359064-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
   
 
-  <style>.col-md-8.col-md-offset-2.opening-statement img{display:none;}</style>
 </head>
 
-<!--
-<body class="post-template">
--->
-<body id="index" class="lightnav animsition">
+</html>
 
-      <!-- ============================ Off-canvas navigation =========================== -->
+<body>
+  <div id="app">
+    <main class="content">
+      <section class="outer">
+  <article id="post-centOsInstallMysql" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
 
-    <div class="sb-slidebar sb-right sb-style-overlay sb-momentum-scrolling">
-        <div class="sb-close" aria-label="Close Menu" aria-hidden="true">
-            <img src="/img/close.png" alt="Close"/>
-        </div>
-        <!-- Lists in Slidebars -->
-        <ul class="sb-menu">
-            <li><a href="/" class="animsition-link" title="Home">Home</a></li>
-            <li><a href="/archives" class="animsition-link" title="archive">archives</a></li>
-            <!-- Dropdown Menu -->
-			 
-            
-        	<li>
-        		<a class="sb-toggle-submenu">Categories<span class="sb-caret"></span></a>
-            	<ul class="sb-submenu">
-				  	
-				    <li>
-                        <a class="sb-toggle-submenu">
-                            Flutter
-                            
-                                <small>( 1 )</small>
-                            
-                            <span class="sb-caret"></span>
-                        </a>
-                        
-                            <ul class="sb-submenu">
-                                
-                                    <li>
-                                        <a href="/post/flutterForWeb" class="animsition-link">
-                                            flutter for web
-                                        </a>
-                                    </li>
-                                
-                            </ul>
-                        
-                    </li>
-				    
-				    <li>
-                        <a class="sb-toggle-submenu">
-                            React
-                            
-                                <small>( 1 )</small>
-                            
-                            <span class="sb-caret"></span>
-                        </a>
-                        
-                            <ul class="sb-submenu">
-                                
-                                    <li>
-                                        <a href="/post/reactRouterNginx" class="animsition-link">
-                                            react-router刷新404 nginx配置
-                                        </a>
-                                    </li>
-                                
-                            </ul>
-                        
-                    </li>
-				    
-				    <li>
-                        <a class="sb-toggle-submenu">
-                            Js
-                            
-                                <small>( 3 )</small>
-                            
-                            <span class="sb-caret"></span>
-                        </a>
-                        
-                            <ul class="sb-submenu">
-                                
-                                    <li>
-                                        <a href="/post/videoToM3U8" class="animsition-link">
-                                            视频切片转m3u8
-                                        </a>
-                                    </li>
-                                
-                                    <li>
-                                        <a href="/post/likeSwiper" class="animsition-link">
-                                            一个移动端翻页的封装
-                                        </a>
-                                    </li>
-                                
-                                    <li>
-                                        <a href="/post/petalsFluttered" class="animsition-link">
-                                            花瓣飘落效果
-                                        </a>
-                                    </li>
-                                
-                            </ul>
-                        
-                    </li>
-				    
-				    <li>
-                        <a class="sb-toggle-submenu">
-                            DB
-                            
-                                <small>( 2 )</small>
-                            
-                            <span class="sb-caret"></span>
-                        </a>
-                        
-                            <ul class="sb-submenu">
-                                
-                                    <li>
-                                        <a href="/post/centOsInstallMysql" class="animsition-link">
-                                            centos 安装mysql8 以及常用sql语句
-                                        </a>
-                                    </li>
-                                
-                                    <li>
-                                        <a href="/post/macMysql8Password" class="animsition-link">
-                                            mac Mysql8密码
-                                        </a>
-                                    </li>
-                                
-                            </ul>
-                        
-                    </li>
-				    
-				    <li>
-                        <a class="sb-toggle-submenu">
-                            Nginx
-                            
-                                <small>( 2 )</small>
-                            
-                            <span class="sb-caret"></span>
-                        </a>
-                        
-                            <ul class="sb-submenu">
-                                
-                                    <li>
-                                        <a href="/post/reactRouterNginx" class="animsition-link">
-                                            react-router刷新404 nginx配置
-                                        </a>
-                                    </li>
-                                
-                                    <li>
-                                        <a href="/post/installNginxLinux" class="animsition-link">
-                                            Linux下安装Nginx
-                                        </a>
-                                    </li>
-                                
-                            </ul>
-                        
-                    </li>
-				    
-				</ul>
-        	</li>
-			
-            
-        </ul>
-        <!-- Lists in Slidebars -->
-        <ul class="sb-menu secondary">
-            
-            <!-- <li><a href="/about/" class="animsition-link" title="about">About</a></li> -->
-            <!-- <li><a href="/atom.xml" class="animsition-link" title="rss">RSS</a></li> -->
-        </ul>
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  centos 安装mysql8 以及常用sql语句
+</h1>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/post/centOsInstallMysql/" class="article-date">
+  <time datetime="2019-09-21T04:44:34.000Z" itemprop="datePublished">2019-09-21</time>
+</a>
+      
     </div>
+    
 
-    <!-- ============================ END Off-canvas navigation =========================== -->
+    
+    
+    <div class="tocbot"></div>
 
-    <!-- ============================ #sb-site Main Page Wrapper =========================== -->
 
-    <div id="sb-site">
-        <!-- #sb-site - All page content should be contained within this id, except the off-canvas navigation itself -->
 
-        <!-- ============================ Header & Logo bar =========================== -->
 
-        <div id="navigation" class="navbar navbar-fixed-top">
-            <div class="navbar-inner">
-                <div class="container">
-                    <!-- Nav logo -->
-                    <div class="logo">
-                        <a href="/" title="Logo" class="animsition-link">
-                           <h1>MonkeyInWind</h1> 
-                          
-                        </a>
-                    </div>
-                    <!-- // Nav logo -->
-                    <!-- Info-bar -->
-                    <nav>
-                        <ul class="nav">
-                            <!-- <li><a href="/" class="animsition-link">MonkeyInWind</a></li> -->
-                            <li class="nolink"><span>Blog</span></li>
-                            
-                            <li><a href="https://github.com/MonkeyInWind" title="Github" target="_blank"><i class="icon-github"></i></a></li>
-                            
-                            
-                            
-                            
-                            
-                            <li class="nolink"><span>Welcome!</span></li>
-                        </ul>
-                    </nav>
-                    <!--// Info-bar -->
-                </div>
-                <!-- // .container -->
-                <div class="learnmore sb-toggle-right">More</div>
-                <button type="button" class="navbar-toggle menu-icon sb-toggle-right" title="More">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar before"></span>
-                <span class="icon-bar main"></span>
-                <span class="icon-bar after"></span>
-                </button>
-            </div>
-            <!-- // .navbar-inner -->
-        </div>
 
-        <!-- ============================ Header & Logo bar =========================== -->
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
 
       
-<section id="intro">
-    <div class="container">
-        <div class="row col-md-offset-2">
-            <div class="col-md-8">
-    			<span class="post-meta">
-      <time datetime="2019-09-21T04:44:34.000Z" itemprop="datePublished">
-          2019-09-21
-      </time>
-    
-</span>
-                <h1>centos 安装mysql8 以及常用sql语句</h1>
-            </div>
-        </div>
-        <div class="col-md-8 col-md-offset-2">
-      		<p>安装环境：centos7<br>刚租了台服务器安装mysql的时候发现之前的笔记已经不合适了，更新一下。</p>
-<p>####mysql安装配置<br>1、检测是否安装过</p>
+
+      
+      <p>安装环境：centos7<br>刚租了台服务器安装mysql的时候发现之前的笔记已经不合适了，更新一下。</p>
+<a id="more"></a>
+<h4 id="mysql安装配置"><a href="#mysql安装配置" class="headerlink" title="mysql安装配置"></a>mysql安装配置</h4><p>1、检测是否安装过</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rpm -qa | grep mysql</span><br></pre></td></tr></table></figure>
 
 <p>2、删除当前已安装版本</p>
@@ -308,7 +101,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">chkconfig mysqld on</span><br></pre></td></tr></table></figure>
 
 <p>6、初始化配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">grep &apos;temporary password&apos; /var/log/mysqld.log    //查看初始密码</span><br><span class="line">2018-12-04T14:08:38.524688Z 5 [Note] [MY-010454] [Server] A temporary password is generated for root@localhost: #Fwd;l5cl*r*   //初始密码  这很反人类</span><br><span class="line">//下面初始化</span><br><span class="line">whereis mysql_secure_installation    //找到mysql_secure_installation</span><br><span class="line">mysql_secure_installation: /usr/bin/mysql_secure_installation /usr/share/man/man1/mysql_secure_installation.1.gz</span><br><span class="line">/usr/bin/mysql_secure_installation    //直接运行mysql_secure_installation</span><br><span class="line">Securing the MySQL server deployment.</span><br><span class="line"></span><br><span class="line">Enter password for user root:            //输入刚才查看的密码</span><br><span class="line"></span><br><span class="line">The existing password for the user account root has expired. Please set a new password.</span><br><span class="line"></span><br><span class="line">New password:                              //新密码大小写数字加特殊符号</span><br><span class="line"></span><br><span class="line">Re-enter new password:              //重复新密码</span><br><span class="line">The &apos;validate_password&apos; component is installed on the server.</span><br><span class="line">The subsequent steps will run with the existing configuration</span><br><span class="line">of the component.</span><br><span class="line">Using existing password for root.</span><br><span class="line"></span><br><span class="line">Estimated strength of the password: 100</span><br><span class="line">Change the password for root ? ((Press y|Y for Yes, any other key for No) :        //直接跳过  选Y的话是重新设置密码</span><br><span class="line"> ... skipping.</span><br><span class="line">By default, a MySQL installation has an anonymous user,</span><br><span class="line">allowing anyone to log into MySQL without having to have</span><br><span class="line">a user account created for them. This is intended only for</span><br><span class="line">testing, and to make the installation go a bit smoother.</span><br><span class="line">You should remove them before moving into a production</span><br><span class="line">environment.</span><br><span class="line"></span><br><span class="line">Remove anonymous users? (Press y|Y for Yes, any other key for No) : y  //禁止匿名访问</span><br><span class="line">Success.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Normally, root should only be allowed to connect from</span><br><span class="line">&apos;localhost&apos;. This ensures that someone cannot guess at</span><br><span class="line">the root password from the network.</span><br><span class="line"></span><br><span class="line">Disallow root login remotely? (Press y|Y for Yes, any other key for No) : y  //不允许root远程访问</span><br><span class="line">Success.</span><br><span class="line"></span><br><span class="line">By default, MySQL comes with a database named &apos;test&apos; that</span><br><span class="line">anyone can access. This is also intended only for testing,</span><br><span class="line">and should be removed before moving into a production</span><br><span class="line">environment.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Remove test database and access to it? (Press y|Y for Yes, any other key for No) : y  //删除测试数据库test</span><br><span class="line"> - Dropping test database...</span><br><span class="line">Success.</span><br><span class="line"></span><br><span class="line"> - Removing privileges on test database...</span><br><span class="line">Success.</span><br><span class="line"></span><br><span class="line">Reloading the privilege tables will ensure that all changes</span><br><span class="line">made so far will take effect immediately.</span><br><span class="line"></span><br><span class="line">Reload privilege tables now? (Press y|Y for Yes, any other key for No) : y  重新加载授权信息</span><br><span class="line">Success.</span><br><span class="line"></span><br><span class="line">All done!</span><br><span class="line">```   </span><br><span class="line"></span><br><span class="line">####常用命令</span><br><span class="line">1、开启/关闭mysql服务</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><span class="line">grep &apos;temporary password&apos; /var/log/mysqld.log    //查看初始密码</span><br><span class="line">2018-12-04T14:08:38.524688Z 5 [Note] [MY-010454] [Server] A temporary password is generated for root@localhost: #Fwd;l5cl*r*   //初始密码  这很反人类</span><br><span class="line">//下面初始化</span><br><span class="line">whereis mysql_secure_installation    //找到mysql_secure_installation</span><br><span class="line">mysql_secure_installation: /usr/bin/mysql_secure_installation /usr/share/man/man1/mysql_secure_installation.1.gz</span><br><span class="line">/usr/bin/mysql_secure_installation    //直接运行mysql_secure_installation</span><br><span class="line">Securing the MySQL server deployment.</span><br><span class="line"></span><br><span class="line">Enter password for user root:            //输入刚才查看的密码</span><br><span class="line"></span><br><span class="line">The existing password for the user account root has expired. Please set a new password.</span><br><span class="line"></span><br><span class="line">New password:                              //新密码大小写数字加特殊符号</span><br><span class="line"></span><br><span class="line">Re-enter new password:              //重复新密码</span><br><span class="line">The &apos;validate_password&apos; component is installed on the server.</span><br><span class="line">The subsequent steps will run with the existing configuration</span><br><span class="line">of the component.</span><br><span class="line">Using existing password for root.</span><br><span class="line"></span><br><span class="line">Estimated strength of the password: 100</span><br><span class="line">Change the password for root ? ((Press y|Y for Yes, any other key for No) :        //直接跳过  选Y的话是重新设置密码</span><br><span class="line"> ... skipping.</span><br><span class="line">By default, a MySQL installation has an anonymous user,</span><br><span class="line">allowing anyone to log into MySQL without having to have</span><br><span class="line">a user account created for them. This is intended only for</span><br><span class="line">testing, and to make the installation go a bit smoother.</span><br><span class="line">You should remove them before moving into a production</span><br><span class="line">environment.</span><br><span class="line"></span><br><span class="line">Remove anonymous users? (Press y|Y for Yes, any other key for No) : y  //禁止匿名访问</span><br><span class="line">Success.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Normally, root should only be allowed to connect from</span><br><span class="line">&apos;localhost&apos;. This ensures that someone cannot guess at</span><br><span class="line">the root password from the network.</span><br><span class="line"></span><br><span class="line">Disallow root login remotely? (Press y|Y for Yes, any other key for No) : y  //不允许root远程访问</span><br><span class="line">Success.</span><br><span class="line"></span><br><span class="line">By default, MySQL comes with a database named &apos;test&apos; that</span><br><span class="line">anyone can access. This is also intended only for testing,</span><br><span class="line">and should be removed before moving into a production</span><br><span class="line">environment.</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">Remove test database and access to it? (Press y|Y for Yes, any other key for No) : y  //删除测试数据库test</span><br><span class="line"> - Dropping test database...</span><br><span class="line">Success.</span><br><span class="line"></span><br><span class="line"> - Removing privileges on test database...</span><br><span class="line">Success.</span><br><span class="line"></span><br><span class="line">Reloading the privilege tables will ensure that all changes</span><br><span class="line">made so far will take effect immediately.</span><br><span class="line"></span><br><span class="line">Reload privilege tables now? (Press y|Y for Yes, any other key for No) : y  重新加载授权信息</span><br><span class="line">Success.</span><br><span class="line"></span><br><span class="line">All done!</span><br><span class="line">```   </span><br><span class="line"></span><br><span class="line">#### 常用命令</span><br><span class="line">1、开启/关闭mysql服务</span><br></pre></td></tr></table></figure>
 
 <p>service mysqld stop/restart</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">2、访问mysql数据库</span><br></pre></td></tr></table></figure>
@@ -341,7 +134,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">11、显示表中所有数据</span><br></pre></td></tr></table></figure>
 
 <p>select * from 表名;</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">12、表中添加一列</span><br><span class="line">如果想在一个已经建好的表中添加一列：</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">12、表中添加一列  </span><br><span class="line">如果想在一个已经建好的表中添加一列：</span><br></pre></td></tr></table></figure>
 
 <p>alter table TABLE_NAME add column NEW_COLUMN_NAME varchar(20) not null;</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">这条语句会向已有的表中加入新的一列，这一列在表的最后一列位置。如果我们希望添加在指定的一列：</span><br></pre></td></tr></table></figure>
@@ -371,144 +164,245 @@
 
 <p>alter table &lt;表名&gt; change &lt;字段名&gt; &lt;字段名&gt; &lt;类型&gt; character set utf8;<br>//demo<br>alter table user change username username varchar(20) character set utf8 not null;</p>
 <pre><code>`**修改完的数据库和库里的表 并不会使原来的数据生效，而是新加入的数据才会生效。`</code></pre>
-            <div class="clearfix"></div>
-            <hr class="nogutter">
-        </div>
-        <nav class="m-pagination col-md-8 col-md-offset-2 col-sm-24" role="pagination">
-    
-    <a class="pull-left" href="/post/macMysql8Password/" style="float: left;">
-        ← mac mysql8 密码
-    </a>
-    
-    
-    <a class="pull-right" href="/post/likeSwiper/">
-        一个移动端翻页的封装 →
-    </a>
-    
-</nav>
-
-        <div class="col-md-8 col-md-offset-2 col-sm-24"><script type="text/javascript">
-  /**
-   * 搜狐畅言
-   */
-
-  /*
-  document.write('<div id="SOHUCS" sid="' + window.location.pathname.slice(1) + '" ></div>');
-
-  window.onload = function () {
-    (function () {
-      var appid = 'cytXXXX';
-      var conf = 'prod_xxxxxxxxxxxxxxxxx';
-      var width = window.innerWidth || document.documentElement.clientWidth;
-      var loadJs = function (d, a, id) {
-        var c = document.getElementsByTagName("head")[0] || document.head || document.documentElement;
-        var b = document.createElement("script");
-        b.setAttribute("type", "text/javascript");
-        b.setAttribute("charset", "UTF-8");
-        b.setAttribute("src", d);
-        if (id) {
-          b.setAttribute("id", id);
-        }
-        if (typeof a === "function") {
-          if (window.attachEvent) {
-            b.onreadystatechange = function () {
-              var e = b.readyState;
-              if (e === "loaded" || e === "complete") {
-                b.onreadystatechange = null;
-                a()
-              }
-            }
-          } else {
-            b.onload = a
-          }
-        }
-        c.appendChild(b)
-      };
-
-      loadJs("https://changyan.sohu.com/upload/changyan.js", function () {
-        window.changyan.api.config({
-          appid: appid,
-          conf: conf
-        })
-      });
-    })();
-  }
-  */
-
-</script>
-</div>
-    </div>
-</section>
-
-
       
-<!-- ============================ Footer =========================== -->
+      <!-- 打赏 -->
+      
+    </div>
+    <footer class="article-footer">
+      <!-- 
+      <a data-url="http://yoursite.com/post/centOsInstallMysql/" data-id="ck50l5qoo0002rohsevjbfucg"
+        class="article-share-link">分享</a>
+      
+       -->
+    </footer>
 
-<footer>
-    <div class="container">
-            <div class="copy">
-                <!--<p>
-                    &copy; 2014<script>new Date().getFullYear()>2010&&document.write("-"+new Date().getFullYear());</script>, Content By John Doe. All Rights Reserved.
-                </p>
-                <p>Theme By <a href="//go.kieran.top" style="color: #767D84">Kieran</a></p> -->
-            </div>
-            <div class="social">
-                <ul>
-                    
-                    <li><a href="https://github.com/MonkeyInWind" title="Github" target="_blank"><i class="icon-github"></i></a>&nbsp;</li>
-                    
-                    
-                    
-                    
-                    
-                </ul>
-            </div>
-            <div class="clearfix"> </div>
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+      <a href="/post/macMysql8Password/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            mac mysql8 密码
+          
         </div>
+      </a>
+    
+    
+      <a href="/post/likeSwiper/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">一个移动端翻页的封装</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: '',
+        app_key: '',
+        path: window.location.pathname,
+        avatar: 'mp',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>
+        &copy;
+        2020-01
+        MonkeyInWind
+      </li>
+      <li>
+        <!--
+        
+          Power by
+        
+        
+        <a href="https://hexo.io" target="_blank">Hexo</a> Theme <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+        -->
+        <a target="_blank" href='https://github.com/MonkeyInWind'>GitHub</a>
+      </li>
+    </ul>
+    <ul class="list-inline">
+      <li>
+        
+      </li>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
 </footer>
 
-<!-- ============================ END Footer =========================== -->
-
-      <!-- Load our scripts -->
-<!-- Resizable 'on-demand' full-height hero -->
-<script type="text/javascript">
-    var resizeHero = function () {
-        var hero = $(".cover,.heightblock"),
-            window1 = $(window);
-        hero.css({
-            "height": window1.height()
-        });
-    };
-
-    resizeHero();
-
-    $(window).resize(function () {
-        resizeHero();
-    });
-</script>
-<script src="/js/plugins.min.js"></script><!-- Bootstrap core and concatenated plugins always load here -->
-<script src="/js/scripts.js"></script><!-- Theme scripts -->
-
-
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-$('#intro').find('img').each(function(){
-  var alt = this.alt;
-
-  if (alt){
-    $(this).after('<span class="caption" style="display:none">' + alt + '</span>');
-  }
-
-  $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox" rel="gallery" />');
-});
-(function($){
-  $('.fancybox').fancybox();
-})(jQuery);
-</script>
-
-
-
+    <div class="to_top">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+      </div>
+    </main>
+    
+    <aside class="sidebar">
       
+        <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/logo.png" alt="MonkeyInWind"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">目录</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/about">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+      </aside>
+      <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+      <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/tocbot.min.js"></script>
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  </script>
+
+
+<script>
+  var ayerConfig = {
+    mathjax: false
+  }
+</script>
+
+<script src="/js/ayer.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+  
+  
+  </div>
 </body>
+
 </html>

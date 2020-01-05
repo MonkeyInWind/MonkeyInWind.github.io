@@ -6,7 +6,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>
-    mac mysql8 密码 |  MonkeyInWind
+     MonkeyInWind
   </title>
   
   <link rel="shortcut icon" href="/favicon.ico">
@@ -39,37 +39,13 @@ ga('send', 'pageview');
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-macMysql8Password" class="article article-type-post" itemscope
+  <article id="page-" class="article article-type-page" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
     
-    <header class="article-header">
-       
-<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  mac mysql8 密码
-</h1>
-  
-
-    </header>
-    
 
     
-    <div class="article-meta">
-      <a href="/post/macMysql8Password/" class="article-date">
-  <time datetime="2019-09-21T04:47:53.000Z" itemprop="datePublished">2019-09-21</time>
-</a>
-      
-    </div>
-    
-
-    
-    
-    <div class="tocbot"></div>
-
-
-
-
 
     
 
@@ -80,41 +56,14 @@ ga('send', 'pageview');
       
 
       
-      <p>新电脑安装mysql之后第一次是无法登陆的因为没有初始密码，网上都是老版本的处理方法，mysql8已经失效。</p>
-<a id="more"></a>
-<h3 id="1、停止mysql服务"><a href="#1、停止mysql服务" class="headerlink" title="1、停止mysql服务"></a>1、停止mysql服务</h3><p>系统设置偏好 &gt; mysql &gt; Stop Mysql Server<br><img src="1.png" alt="image.png"></p>
-<h3 id="2、跳过登陆"><a href="#2、跳过登陆" class="headerlink" title="2、跳过登陆"></a>2、跳过登陆</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo -i      //root权限</span><br><span class="line">sudo mysqld_safe --user=mysql --skip-grant-tables --skip-networking</span><br></pre></td></tr></table></figure>
-
-<p><img src="2.png" alt="image.png"><br><code>这里不要动！！！</code><br>打开另一个终端窗口</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -u root</span><br></pre></td></tr></table></figure>
-
-<p>直接回车就可以登陆mysql</p>
-<h3 id="3、修改密码"><a href="#3、修改密码" class="headerlink" title="3、修改密码"></a>3、修改密码</h3><p>在这里</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show databases;</span><br></pre></td></tr></table></figure>
-
-<p>可以看见有个mysql数据库<br><img src="3.png" alt="image.png"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">use mysql;</span><br><span class="line">show tables;</span><br></pre></td></tr></table></figure>
-
-<p>可以看见有个user的表，感兴趣可以看一下。<br>接下来</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">flush privileges;</span><br></pre></td></tr></table></figure>
-
-<p><img src="4.png" alt="image.png"><br>重置密码</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter user &apos;root&apos;@&apos;localhost&apos; identified by &apos;new password&apos;;</span><br></pre></td></tr></table></figure>
-
-<p>关闭终端，重新打开</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -uroot -p[password]</span><br></pre></td></tr></table></figure>
-
-<p>即可登陆mysql</p>
-<h3 id="4、开机启动"><a href="#4、开机启动" class="headerlink" title="4、开机启动"></a>4、开机启动</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ln -sfv /usr/local/opt/mysql/*.plist ~/Library/LaunchAgents/</span><br><span class="line">launchctl load ~/Library/LaunchAgents/homebrew.mxcl.mysql.plist</span><br></pre></td></tr></table></figure>
-
-
+      
       
       <!-- 打赏 -->
       
     </div>
     <footer class="article-footer">
       <!-- 
-      <a data-url="http://yoursite.com/post/macMysql8Password/" data-id="ck50l5qp10007rohsdaqg3ik7"
+      <a data-url="http://yoursite.com/Tags/index.html" data-id="ck50l5qnk0000rohsa4wofvmd"
         class="article-share-link">分享</a>
       
        -->
@@ -124,25 +73,6 @@ ga('send', 'pageview');
 
   
   
-  <nav class="article-nav">
-    
-      <a href="/post/petalsFluttered/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            花瓣飘落效果
-          
-        </div>
-      </a>
-    
-    
-      <a href="/post/centOsInstallMysql/" class="article-nav-link">
-        <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">centos 安装mysql8 以及常用sql语句</div>
-      </a>
-    
-  </nav>
-
 
   
 
@@ -201,8 +131,6 @@ ga('send', 'pageview');
   
 
   
-  
-  
 
 </article>
 
@@ -246,8 +174,8 @@ ga('send', 'pageview');
       </div>
     </main>
     
-    <aside class="sidebar">
-      
+      <aside class="sidebar">
+        
         <button class="navbar-toggle"></button>
 <nav class="navbar">
   
@@ -313,21 +241,6 @@ ga('send', 'pageview');
   <script src="/fancybox/jquery.fancybox.min.js"></script>
 
 
-
-  <script src="/js/tocbot.min.js"></script>
-  <script>
-    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
-    tocbot.init({
-      tocSelector: '.tocbot',
-      contentSelector: '.article-entry',
-      headingSelector: 'h1, h2, h3, h4, h5, h6',
-      hasInnerContainers: true,
-      scrollSmooth: true,
-      positionFixedSelector: '.tocbot',
-      positionFixedClass: 'is-position-fixed',
-      fixedSidebarOffset: 'auto',
-    });
-  </script>
 
 
 <script>
