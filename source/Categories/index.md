@@ -4,6 +4,9 @@
 [hello world和文本组件Text、TextSpan](/post/textWidget)
 [容器组件Container](/post/containerWidget)
 [图片Image](/post/imageWidget)
+[图标Icon](/post/iconWidget)
+[按钮 各种Button](/post/buttonWidget)
+[复选框CheckBox、CheckboxListTile](/post/checkWidget)
 ### ~other
 [flutter for web](/post/flutterForWeb)
 ## React
