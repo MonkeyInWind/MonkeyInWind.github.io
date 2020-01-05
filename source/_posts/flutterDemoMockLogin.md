@@ -25,7 +25,7 @@ flutter create flutter_demo
 ![image.png](5.png)
 跑起来就可以进行下一步了。
 # 二、写Demo
-### 1、一段文本
+## 1、一段文本
 ![image.png](6.png)
 这里选成`Project`，打开`lib`目录下的`main.dart`，删除大部分代码，只保留以下部分：
 ```
@@ -110,7 +110,7 @@ class MyApp extends StatelessWidget {
 关于`Text`的详细介绍看这里[hello world和文本组件Text、TextSpan](/post/flutterTextWidget)
 
 到这可能有人会提出问题，一个app不可能所有代码都放在一个class里，那根本没法看，这就是接下来要干的事。
-### 2、组件封装
+## 2、组件封装
 定义一个新的class叫`Page1`，并把`scaffold`放在里边。
 ```
 import 'package:flutter/material.dart';
@@ -191,7 +191,7 @@ class MyApp extends StatelessWidget {
 ```
 这样就做到了组件拆分。  
 开篇的demo地址切到`demo_1`分支，就是上边的完整代码。
-### 3、一个方块
+## 3、一个方块
 html有个最常用的标签`div`，曾有一段时间把页面布局叫做div布局，flutter里有个类似的widget叫`Container`（[容器组件Container](/post/flutterContainerWidget)）。  
 接下来我们在`lib`目录下新建一个`page2.dart`文件。  
 整体框架和`page1.dart`相同。
@@ -254,7 +254,7 @@ class Page2 extends StatelessWidget {
 ```
 可以看见页面上出现了一个红色的方块。  
 有page1和page2了，接下来看以下页面怎么跳转。  
-### 4、路由
+## 4、路由
 我们来改造一下前边写的demo，`main.dart`还是import`page1.dart`。
 ```
 import 'package:flutter/material.dart';
@@ -380,8 +380,8 @@ class Page2 extends StatelessWidget {
 ![image.png](14.png)
 只需要调用`Navigator.pop(context)`方法就可以返回上一页。  
 分支切换到`demo_2`为以上demo的代码。
-### 5、插播一条调试
-##### 布局
+## 5、插播一条调试
+#### 布局
 写web都知道开发者工具可以定位到页面上任意一个元素，flutter也可以。  
 `Android Studio`在菜单栏`View -> Tool Windows -> Flutter Inspector`。  
 打开之后在编辑区右侧出现了调试工具。
@@ -391,7 +391,7 @@ class Page2 extends StatelessWidget {
 并且可以看见这个`Widget`上的所有属性和样式同时模拟器左下角还会出现一个放大镜，点击放大镜后可以再选中其他`Widget`。
 ![image.png](17.png)
 另一个工具可以查看页面的整体布局。
-##### 打断点
+#### 打断点
 需要在debug模式下运行才可以打断点。
 ![image.png](18.png)
 用这只虫子启动项目，在某一行代码前点击，出现红色的圆点。
@@ -399,11 +399,11 @@ class Page2 extends StatelessWidget {
 然后点击`back`这个按钮。
 ![image.png](20.png)
 和web一样。
-##### 利用浏览器调试
+#### 利用浏览器调试
 ![image.png](21.png)
 点击这个按钮会在浏览器打开`Dart DevTools`，和在`Android Studio`调试基本相同，就不重复了，放一张图。
 ![image.png](22.png)
-### 6、图片
+## 6、图片
 首先新建一个`page3.dart`的文件，在`page2.dart`中添加`floatingActionButton`，并将`page3.dart`import进来，`page3.dart` 中搭好页面。  
 `page2.dart`
 ```
@@ -572,7 +572,7 @@ class Page3 extends StatelessWidget {
 
 这就比直接显示图片要好很多。  
 以上代码在demo_3分支。
-### 7、滚动列表 & 网格布局
+## 7、滚动列表 & 网格布局
 还是在`page3.dart`中添加`floatingActionButton`，然后新建一个文件`page4.dart`，在`page3.dart`中import。  
 先看一个最简单的列表
 ```
@@ -736,7 +736,7 @@ class Page4 extends StatelessWidget {
 `GridView`就是网格布局，可以指定一行有几个`Widget`，每个`Widget`之间的距离等。  
 `List.generate`值是一个函数，返回一个`Widget`，用来生成一组`Widget`。  
 以上代码在`demo_4`分支。
-### 8、手势
+## 8、手势
 前边都是一些常见`Widget`的简单用法，接下来说一下手势。  
 先来介绍一下`Pointers`，用户与屏幕交互的原始数据，包括`PointerDownEvent`、`PointerMoveEvent`、`PointerUpEvent`、`PointerCancelEvent`。类似于移动端`web`的`touch`事件。  
 再说一下手势，一个或几个`Pointer`的封装，先来一个按钮的demo看一下。
@@ -862,7 +862,7 @@ class Page5 extends StatelessWidget{
 这里用了`List.generate`方法生成了一个`List` ，然后用了`ListView.builder`生成了一个`ListView`。`Dismissible`是flutter提供的一个可以滑动删除的`Widget`，`SnackBar`就是底部的提示。  
 关于手势的中文文档看这里[https://flutterchina.club/gestures/](https://flutterchina.club/gestures/)。  
 以上demo在`demo_5`分支。
-### 9、有状态组件
+## 9、有状态组件
 前边的`Widget`都是继承`StatelessWidget`也就是无状态组件，接下来看一下`StatefulWidget`有状态组件。  
 先来布个局
 ![image.png](31.png)
@@ -1127,7 +1127,7 @@ class _BoxChangeColorState extends State<BoxChangeColor> {
 再来看一下效果
 ![Dec-11-2019 22-43-58.gif](32.gif)
 以上代码在`demo_6`分支。
-### 10、模拟登录
+## 10、模拟登录
 前边都是基本用法的介绍，而且demo都很零碎，接下来做一个模拟登录的demo。  
 点击`Login`按钮跳转至登录页面，点击`Cancel`按钮返回登录页面，输入`username`和`password`后点击登录页面的`Login`按钮模拟登录，跳转回前一页面，这个时候隐藏登录页面的`Login`按钮并显示一张图片。  
 首先新建一个`login.dart`文件用作登录页面，终于不是page了，在里边创建一个名为`Login`的`StatefulWidget`，然后在`main.dart`中把这个文件import进来，然后在`main.dart`创建一个名为`HomePage`的`StatefulWidget`作为主页，中间放一个按钮，点击按钮跳转至登录页。  
@@ -1497,7 +1497,7 @@ class _HomePageState extends State<HomePage> {
 在这同样加一个`logged`表示登录状态，`Center`的`child`根据`logged`判断显示图片还是按钮，`Login`按钮的`onPressed`事件这需要注意一下，加了`sync`表示这是一个异步方法，`Navigator`这返回一个`Feature`，需要`await`一下，看着和js的`async`、`await`、`promise`用法一样，`result`就是返回的参数，把他set给`logged`，就实现了我们的需求。  
 再来看一下效果
 ![Dec-12-2019 22-43-30.gif](35.gif)
-### 11、网络请求
+## 11、网络请求
 前边的登录是在app里模拟，但是写应用是离不开网络请求的，接下来我们添加个网络请求，调个登录接口。  
 这里用一个封装好的第三方网络请求[https://github.com/flutterchina/dio](https://github.com/flutterchina/dio)  
 还是在`pubspec.yaml`里添加`dio`。
