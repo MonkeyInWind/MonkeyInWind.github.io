@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head><meta name="generator" content="Hexo 3.9.0">
+  <meta charset="utf-8">
+    
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    容器组件Container |  MonkeyInWind
+  </title>
+  
+  <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  <script src="/js/pace.min.js"></script>
+
+  
+
+<script type="text/javascript">
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+ga('create', 'UA-155359064-1', 'auto');
+ga('send', 'pageview');
+
+</script>
+
+
+
+  
+
+</head>
+
+</html>
+
+<body>
+  <div id="app">
+    <main class="content">
+      <section class="outer">
+  <article id="post-containerWidget" class="article article-type-post" itemscope
+  itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h1 class="article-title sea-center" style="border-left:0" itemprop="name">
+  容器组件Container
+</h1>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/post/containerWidget/" class="article-date">
+  <time datetime="2020-01-05T10:46:12.000Z" itemprop="datePublished">2020-01-05</time>
+</a>
+      
+    </div>
+    
+
+    
+    
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <p>上一篇笔记用了个<code>Container</code>组件，这一篇详细介绍一下，整体来说这个组件类似<code>div</code>，但是与<code>div</code>又不同，具体有哪些特性，先了解一下<code>Container</code>有哪些属性再总结，因为不了解有哪些属性直接看的话，会有点懵逼。</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Container(&#123;</span><br><span class="line">  Key key,</span><br><span class="line">  AlignmentGeometry alignment,        //子组件的对齐方式</span><br><span class="line">  EdgelnsetsGeometry padding,          //内边距</span><br><span class="line">  Color color,                          //背景色</span><br><span class="line">  Decoration decoration,                //背景装饰  相当于样式  在child之下</span><br><span class="line">  Decoration foregroundDecoration,      //前景装饰  覆盖在child之上  如半透明遮罩效果</span><br><span class="line">  double width,                         //宽</span><br><span class="line">  double height,                         //高</span><br><span class="line">  BoxConstraints constraints,           //容器的大小限制</span><br><span class="line">  EdgelnsetsGeometry margin,            //外边距</span><br><span class="line">  Matrix4 transform,                     //变换</span><br><span class="line">  Widget child                            //子节点</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h2 id="1、alignment"><a href="#1、alignment" class="headerlink" title="1、alignment"></a>1、alignment</h2><p>子组件的对齐方式，<code>有子组件并且当前Container尺寸大于子组件尺寸时有效</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">new Container(</span><br><span class="line">  color: Colors.red,</span><br><span class="line">  width: 400.0,</span><br><span class="line">  height: 400.0,</span><br><span class="line">  alignment: Alignment.center,</span><br><span class="line">  child: new Container(</span><br><span class="line">    color: Colors.blue,</span><br><span class="line">    width: 50.0,</span><br><span class="line">    height: 50.0,</span><br><span class="line">  )</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p><code>center</code>：居中<br><code>centerLeft</code>：靠左垂直居中<br><code>centerRight</code>：靠右垂直居中<br><code>bottomCenter</code>：底部居中<br><code>bottomLeft</code>：左下<br><code>bottomRight</code>：右下<br><code>topCenter</code>：顶部居中<br><code>topLeft</code>：左上<br><code>topRight</code>：右上<br>可以看见除了<code>center</code>，都是两个单词拼在一起很好记，垂直方向在前，水平方向在后。<br>子组件尺寸要小于当前组件尺寸时才会生效。</p>
+<h2 id="2、padding-amp-margin"><a href="#2、padding-amp-margin" class="headerlink" title="2、padding &amp; margin"></a>2、padding &amp; margin</h2><p>这两个放一起，设置方式相同，这里以padding为例。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">new Container(</span><br><span class="line">  padding: EdgeInsets.all(10.0)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p><code>EdgeInsets.all</code>：四个内边距值相同<br><code>EdgeInsets.only</code>：四个边距单独设置，不设置则为0，用法如下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">padding: EdgeInsets.only(</span><br><span class="line">  top: 10.0,</span><br><span class="line">  left: 20.0</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>可以只写一个，也可以四个全都写。<br><code>EdgeInsets.symmetric</code>：可以设置同方向上的两个内边距</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">padding: EdgeInsets.symmetric(</span><br><span class="line">  horizontal: 10.0,        //水平方向两个边距</span><br><span class="line">  vertical: 20.0          //垂直方向两个边距</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p><code>EdgeInsets.zero</code>：设置内边距为0<br><code>EdgeInsets.fromLTRB</code>：<code>only</code>的简写，顺序为左上右下</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">padding: EdgeInsets.fromLTRB(10.0, 20.0, 30.0, 40.0)</span><br></pre></td></tr></table></figure>
+
+<p><code>EdgeInsets.fromWindowPadding</code>：具体用法不知道<br><code>***EdgeInsets这个组件是个公用组件，并不是只有padding可以用，比如margin也可以</code></p>
+<h2 id="3、color"><a href="#3、color" class="headerlink" title="3、color"></a>3、color</h2><p>背景色。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">new Container(</span><br><span class="line">  color: Colors.red</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h2 id="4、decoration"><a href="#4、decoration" class="headerlink" title="4、decoration"></a>4、decoration</h2><p><code>***decoration不能和color同时用，会报错。</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">const BoxDecoration(&#123;</span><br><span class="line">  Color color,</span><br><span class="line">  DecorationImage image,</span><br><span class="line">  BoxBorder border,</span><br><span class="line">  BorderRadiusGeometry borderRadius,</span><br><span class="line">  List&lt;BoxShadow&gt; boxShadow,</span><br><span class="line">  Gradient gradient,</span><br><span class="line">  BlendMode backgroundBlendMode,</span><br><span class="line">  BoxShape shape: BoxShape.rectangle</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h4 id="color"><a href="#color" class="headerlink" title="color"></a>color</h4><p>和color一样，没啥说的。</p>
+<h4 id="image"><a href="#image" class="headerlink" title="image"></a>image</h4><p>背景图，可以和背景色一起使用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">decoration: BoxDecoration(</span><br><span class="line">  image: DecorationImage(</span><br><span class="line">  //这里先用网图，怎么加载本地资源以后再细说</span><br><span class="line">    image: new NetworkImage(&apos;https://cdn.jsdelivr.net/gh/flutterchina/website@1.0/images/flutter-mark-square-100.png&apos;)</span><br><span class="line">  )</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h4 id="border"><a href="#border" class="headerlink" title="border"></a>border</h4><p>边框，在container内部，和<code>margin/padding</code>类似，可以单独设置也可以设置为统一样式。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">decoration: BoxDecoration(</span><br><span class="line">  //border: Border.all(width: 2.0, color: Colors.blue)          设置为相同样式</span><br><span class="line">  top: BorderSide(width: 2.0, color: Colors.blue),</span><br><span class="line">  left: BorderSide(width: 4.0, color: Colors.yellow),</span><br><span class="line">  right: BorderSide(width: 8.0, color: Colors.green),</span><br><span class="line">  bottom: BorderSide(width: 16.0, color: Colors.purple)</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h4 id="borderRadius"><a href="#borderRadius" class="headerlink" title="borderRadius"></a>borderRadius</h4><p><code>*圆角不能和border同时设置，同时存在时可以运行但是会抛出一个异常</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">decoration: new BoxDecoration(</span><br><span class="line">  borderRadius: BorderRadius.only(                   //only对每个角单独设置</span><br><span class="line">    bottomLeft: Radius.circular(20.0),                  //圆角值为20.0</span><br><span class="line">    topLeft: Radius.zero,                                      //圆角为0</span><br><span class="line">    bottomRight: Radius.elliptical(20.0, 40.0)       //圆角x方向为20.0，y方向为40.0</span><br><span class="line">  )</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p><code>Radius.all</code>：四个角同时设置，参数和但方向的参数相同（<code>borderRadius: new BorderRadius.all(Radius.circular(20.0))</code>）。<br><code>Radius.lerp</code>: 做动画用的多一点暂时先不深入。</p>
+<h4 id="boxShadow"><a href="#boxShadow" class="headerlink" title="boxShadow"></a>boxShadow</h4><p>容器阴影</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">decoration: new BoxDecoration(</span><br><span class="line">  boxShadow: [</span><br><span class="line">    new BoxShadow(</span><br><span class="line">      color: Colors.red,                      //阴影颜色</span><br><span class="line">      offset: Offset(10.0, 20.0),          //偏移量x, y</span><br><span class="line">      blurRadius: 10.0,                      //模糊</span><br><span class="line">      spreadRadius: 10.0                  //延伸</span><br><span class="line">    ),</span><br><span class="line">  ]</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h4 id="gradient"><a href="#gradient" class="headerlink" title="gradient"></a>gradient</h4><p>背景色渐变</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"> //径向渐变</span><br><span class="line">decoration: BoxDecoration(</span><br><span class="line">  gradient: RadialGradient(                         </span><br><span class="line">    colors: [Colors.red, Colors.blue],            //渐变颜色</span><br><span class="line">    center: Alignment.topLeft,                      //渐变中心点，可以设具体数值（center: const Alignment(0.7, -0.6)）</span><br><span class="line">    radius: 5.0                                              //渐变半径</span><br><span class="line">    stops: [0.4, 1.0],                                    //渐变颜色的比例</span><br><span class="line">  ),</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">//线性渐变</span><br><span class="line">gradient: LinearGradient(</span><br><span class="line">  begin: Alignment.topLeft,                            //渐变起始点</span><br><span class="line">  end: Alignment(0.1, 0.1),                            //结束点</span><br><span class="line">  colors: [Colors.red, Colors.blue],              </span><br><span class="line">  tileMode: TileMode.mirror                          //模式有三个值（mirror：镜像，clamp: 单纯的单次渐变不做其他处理，repeated: 重复）</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">//扇形渐变</span><br><span class="line">gradient: SweepGradient(</span><br><span class="line">  center: FractionalOffset.center,    //渐变的圆心</span><br><span class="line">  startAngle: 0.0,                      //渐变的起始角度</span><br><span class="line">  endAngle: math.pi * 2,          //渐变的角度范围</span><br><span class="line">  colors: const &lt;Color&gt;[</span><br><span class="line">    Colors.blue,</span><br><span class="line">    Colors.green,</span><br><span class="line">    Colors.red,</span><br><span class="line">    Colors.yellow,</span><br><span class="line">    Colors.pink</span><br><span class="line">  ],</span><br><span class="line">  stops: const &lt;double&gt;[0.0, 0.25, 0.5, 0.75, 1.0],      //每种颜色所占的比例，总数为2，多出部分被初始颜色覆盖</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>扇形渐变每种颜色的基准线为改颜色的中心线（不理解的自己试一下就知道了）。<br><code>tileMode</code>是这三种渐变都有的属性，不仅限于线性渐变。<br>径向渐变、扇形渐变的圆心位置和线性渐变的起始/结束坐标都是可以设置具体数值的。</p>
+<h4 id="backgroundBlendMode"><a href="#backgroundBlendMode" class="headerlink" title="backgroundBlendMode"></a>backgroundBlendMode</h4><p>图像混合模式，这个东西有点多，要单开一篇。</p>
+<h4 id="shape"><a href="#shape" class="headerlink" title="shape"></a>shape</h4><p>当前Container的形状</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">decoration: BoxDecoration(</span><br><span class="line">  shape: BoxShape.rectangle</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<p>有两个值<br><code>rectangle</code>：矩形<br><code>circle</code>：圆形，不会出现椭圆的情况，宽高不同时直径按小的那个值算。</p>
+<h2 id="5、width-amp-height"><a href="#5、width-amp-height" class="headerlink" title="5、width &amp; height"></a>5、width &amp; height</h2><p>这俩放一起，<code>double</code>类型，宽高。</p>
+<h2 id="6、constraints"><a href="#6、constraints" class="headerlink" title="6、constraints"></a>6、constraints</h2><p>对Container的尺寸约束</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">constraints: new BoxConstraints(</span><br><span class="line">  minWidth: 200.0,</span><br><span class="line">  maxWidth: 300.0,</span><br><span class="line">  minHeight: 200.0,</span><br><span class="line">  maxHeight: 300.0</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h2 id="7、transform"><a href="#7、transform" class="headerlink" title="7、transform"></a>7、transform</h2><p>对Container进行变换操作，和css的transform类似，值是一个矩阵(Matrix4)。<br>这里暂时跳过，开一篇单独说。</p>
+<h2 id="8、child"><a href="#8、child" class="headerlink" title="8、child"></a>8、child</h2><p>子节点，只能有一个子节点，没有children。</p>
+<h2 id="9、关于Container的特性"><a href="#9、关于Container的特性" class="headerlink" title="9、关于Container的特性"></a>9、关于<code>Container</code>的特性</h2><h4 id="关于尺寸的自我调节"><a href="#关于尺寸的自我调节" class="headerlink" title="关于尺寸的自我调节"></a>关于尺寸的自我调节</h4><p>1、如果设置了<code>width/height/constraints</code>，并且尺寸小于父组件的尺寸，则为设置的宽高，如果大于父组件的尺寸则为父组件的宽高，如果父组件有<code>padding</code>，或当前组件有<code>margin</code>需要减去<code>padding/margin</code>。<br>2、如果没有子节点并且没有<code>width/height</code>以及<code>constraints</code>约束，Container的尺寸会撑到最大，尽可能占满父节点。<br>2、如果有子节点并且没有<code>width/height</code>以及<code>constraints</code>约束，Container会尽量缩小。</p>
+<h4 id="关于渲染过程"><a href="#关于渲染过程" class="headerlink" title="关于渲染过程"></a>关于渲染过程</h4><p>生成节点：<br><code>padding &gt; decoration &gt; constraints (width/height) &gt; margin</code><br>绘制节点：<br><code>transform &gt; decoration &gt; foregroundDecoration</code></p>
+<p><code>Container</code>差不多就这些东西，不是太深入，深入的东西就需要自己在项目或者demo中尝试了，还有一些即使是粗略的说也不少，放这里感觉不太合适，后边单独分析。</p>
+
+      
+      <!-- 打赏 -->
+      
+    </div>
+    <footer class="article-footer">
+      <!-- 
+      <a data-url="http://yoursite.com/post/containerWidget/" data-id="ck50wfwd3000cjjhsvhoppxne"
+        class="article-share-link">分享</a>
+      
+       -->
+    </footer>
+
+  </div>
+
+  
+  
+  <nav class="article-nav">
+    
+      <a href="/post/imageWidget/" class="article-nav-link">
+        <strong class="article-nav-caption">上一篇</strong>
+        <div class="article-nav-title">
+          
+            图片Image
+          
+        </div>
+      </a>
+    
+    
+      <a href="/post/textWidget/" class="article-nav-link">
+        <strong class="article-nav-caption">下一篇</strong>
+        <div class="article-nav-title">hello world和文本组件Text、TextSpan</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+  
+<!-- valine评论 -->
+<div id="vcomments-box">
+    <div id="vcomments">
+    </div>
+</div>
+<script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/valine@1.3.10/dist/Valine.min.js'></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        notify: false,
+        verify: false,
+        app_id: '',
+        app_key: '',
+        path: window.location.pathname,
+        avatar: 'mp',
+        placeholder: '给我的文章加点评论吧~',
+        recordIP: true
+    });
+    const infoEle = document.querySelector('#vcomments .info');
+    if (infoEle && infoEle.childNodes && infoEle.childNodes.length > 0) {
+        infoEle.childNodes.forEach(function (item) {
+            item.parentNode.removeChild(item);
+        });
+    }
+</script>
+<style>
+    #vcomments-box {
+        padding: 5px 30px;
+    }
+
+    @media screen and (max-width: 800px) {
+        #vcomments-box {
+            padding: 5px 0px;
+        }
+    }
+
+    #vcomments-box #vcomments {
+        background-color: #fff;
+    }
+
+    .v .vlist .vcard .vh {
+        padding-right: 20px;
+    }
+
+    .v .vlist .vcard {
+        padding-left: 10px;
+    }
+</style>
+
+  
+
+  
+  
+  
+
+</article>
+
+</section>
+      <footer class="footer">
+  <div class="outer">
+    <ul class="list-inline">
+      <li>
+        &copy;
+        2020-01
+        MonkeyInWind
+      </li>
+      <li>
+        <!--
+        
+          Power by
+        
+        
+        <a href="https://hexo.io" target="_blank">Hexo</a> Theme <a href="https://github.com/Shen-Yu/hexo-theme-ayer" target="_blank">Ayer</a>
+        
+        -->
+        <a target="_blank" href='https://github.com/MonkeyInWind'>GitHub</a>
+      </li>
+    </ul>
+    <ul class="list-inline">
+      <li>
+        
+      </li>
+      <li>
+        <!-- cnzz统计 -->
+        
+      </li>
+    </ul>
+  </div>
+</footer>
+
+    <div class="to_top">
+        <div class="totop" id="totop">
+  <i class="ri-arrow-up-line"></i>
+</div>
+      </div>
+    </main>
+    
+    <aside class="sidebar">
+      
+        <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+  <div class="logo">
+    <a href="/"><img src="/images/logo.png" alt="MonkeyInWind"></a>
+  </div>
+  
+  <ul class="nav nav-main">
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/">主页</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/archives">目录</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/Categories">分类</a>
+    </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link" href="/About">关于我</a>
+    </li>
+    
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      
+      <a class="nav-item-link nav-item-search"  title="Search">
+        <i class="ri-search-line"></i>
+      </a>
+      
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+      </aside>
+      <div id="mask"></div>
+
+<!-- #reward -->
+<div id="reward">
+  <span class="close"><i class="ri-close-line"></i></span>
+  <p class="reward-p"><i class="ri-cup-line"></i>请我喝杯咖啡吧~</p>
+  <div class="reward-box">
+    
+    
+  </div>
+</div>
+      <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/tocbot.min.js"></script>
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  </script>
+
+
+<script>
+  var ayerConfig = {
+    mathjax: false
+  }
+</script>
+
+<script src="/js/ayer.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jquery-modal@0.9.2/jquery.modal.min.css">
+
+
+
+<script type="text/javascript" src="https://js.users.51.la/20544303.js"></script>
+  
+  
+  </div>
+</body>
+
+</html>
