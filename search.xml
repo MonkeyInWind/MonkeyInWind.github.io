@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>模拟登录</title>
+    <title>flutter--模拟登录</title>
     <url>/post/flutterDemoMockLogin/</url>
     <content><![CDATA[<p><code>dart</code>官方文档：<a href="https://www.dartcn.com/" target="_blank" rel="noopener">https://www.dartcn.com/</a></p>
 <p>先放上demo的github地址：<a href="https://github.com/MonkeyInWind/flutter_demo" target="_blank" rel="noopener">https://github.com/MonkeyInWind/flutter_demo</a>这篇笔记中的demo都在这个项目里。</p>
@@ -174,7 +174,7 @@
 ]]></content>
   </entry>
   <entry>
-    <title>输入框TextField</title>
+    <title>flutter--输入框TextField</title>
     <url>/post/flutterTextFieldWidget/</url>
     <content><![CDATA[<p>这个组件属性很多。。。<br>先看一下吧</p>
 <a id="more"></a>
@@ -262,7 +262,7 @@
 ]]></content>
   </entry>
   <entry>
-    <title>单选框Radio、RadioListTile</title>
+    <title>flutter--单选框Radio、RadioListTile</title>
     <url>/post/flutterRadioWidget/</url>
     <content><![CDATA[<p>之前学习了复选框和开关，还有个单选框，这里看一下。</p>
 <h2 id="一、Radio"><a href="#一、Radio" class="headerlink" title="一、Radio"></a>一、Radio</h2><p>还是先看constructor</p>
@@ -288,7 +288,7 @@
 ]]></content>
   </entry>
   <entry>
-    <title>单选开关Switch、SwitchListTile</title>
+    <title>flutter--单选开关Switch、SwitchListTile</title>
     <url>/post/flutterSwitchWidget/</url>
     <content><![CDATA[<h2 id="一、Switch"><a href="#一、Switch" class="headerlink" title="一、Switch"></a>一、Switch</h2><p>先看一下<code>Switch</code>的<code>constructor</code></p>
 <a id="more"></a>
@@ -318,7 +318,7 @@
 ]]></content>
   </entry>
   <entry>
-    <title>复选框CheckBox、CheckboxListTile</title>
+    <title>flutter--复选框CheckBox、CheckboxListTile</title>
     <url>/post/flutterCheckWidget/</url>
     <content><![CDATA[<p><code>CheckBox</code>继承自<code>StatelessWidget</code>，是个无状态组件，本身不会保存状态，所以需要一个有状态的父组件用来保存这个状态。</p>
 <a id="more"></a>
@@ -349,7 +349,7 @@
 ]]></content>
   </entry>
   <entry>
-    <title>按钮 各种Button</title>
+    <title>flutter--按钮 各种Button</title>
     <url>/post/flutterButtonWidget/</url>
     <content><![CDATA[<p>flutter提供了以下几种按钮<br><code>RaisedButton 、OutlineButton 、FlatButton 、IconButton 、FloatingActionButton 、MaterialButton</code> 。  </p>
 <a id="more"></a>
@@ -418,7 +418,7 @@
 ]]></content>
   </entry>
   <entry>
-    <title>图标Icon</title>
+    <title>flutter--图标Icon</title>
     <url>/post/flutterIconWidget/</url>
     <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">const Icon(</span><br><span class="line">  IconData icon,                          //具体展示的图标</span><br><span class="line"> &#123;                      </span><br><span class="line">    Key key,</span><br><span class="line">    double size,                          //字体大小</span><br><span class="line">    Color color,                          //颜色</span><br><span class="line">    String semanticLabel,                   //语义标签</span><br><span class="line">    TextDirection textDirection            //icon里可以添加文本，文本的书写方向</span><br><span class="line">  &#125;</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
 
@@ -456,7 +456,7 @@
 ]]></content>
   </entry>
   <entry>
-    <title>图片Image</title>
+    <title>flutter--图片Image</title>
     <url>/post/flutterImageWidget/</url>
     <content><![CDATA[<p>先看一下constructor</p>
 <a id="more"></a>
@@ -510,7 +510,7 @@
 ]]></content>
   </entry>
   <entry>
-    <title>容器组件Container</title>
+    <title>flutter--容器组件Container</title>
     <url>/post/flutterContainerWidget/</url>
     <content><![CDATA[<p>上一篇笔记用了个<code>Container</code>组件，这一篇详细介绍一下，整体来说这个组件类似<code>div</code>，但是与<code>div</code>又不同，具体有哪些特性，先了解一下<code>Container</code>有哪些属性再总结，因为不了解有哪些属性直接看的话，会有点懵逼。</p>
 <a id="more"></a>
@@ -574,7 +574,7 @@
 ]]></content>
   </entry>
   <entry>
-    <title>hello world和文本组件Text、TextSpan</title>
+    <title>flutter--hello world和文本组件Text、TextSpan</title>
     <url>/post/flutterTextWidget/</url>
     <content><![CDATA[<h1 id="Hello-World"><a href="#Hello-World" class="headerlink" title="Hello World"></a>Hello World</h1><p>代码的世界从<code>hello world</code>开始，flutter也一样。<br>创建一个项目，将<code>lib</code>文件夹下的<code>main.dart</code>改为如下代码：</p>
 <a id="more"></a>
@@ -676,7 +676,7 @@
 ]]></content>
   </entry>
   <entry>
-    <title>官方示例 &amp; 代码解读</title>
+    <title>flutter--官方示例 &amp; 代码解读</title>
     <url>/post/flutterOfficialExample/</url>
     <content><![CDATA[<p>语法的东西就不详细说了，可以看官方文档了解一下<a href="https://www.dartcn.com/" target="_blank" rel="noopener">https://www.dartcn.com/</a>，学习过程中也会介绍一些。</p>
 <a id="more"></a>
