@@ -25,4 +25,4 @@
 [2、mac Mysql8密码](/post/macMysql8Password)
 ## Nginx
 [1、react-router刷新404 nginx配置](/post/reactRouterNginx)
-[2、Linux下安装Nginx](/post/installNginxLinux)
+[2、Linux下安装Nginx](/post/installNginxInLinux)
