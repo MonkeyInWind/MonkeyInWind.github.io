@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>electron &#39;unsafe-eval&#39;</title>
+    <url>/post/ElectronUnsafeEval/</url>
+    <content><![CDATA[<p>electron 出现如下警告</p>
+<a id="more"></a>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">Electron Security Warning (Insecure Content-Security-Policy) This renderer process has either no Content Security</span><br><span class="line">    Policy set or a policy with &quot;unsafe-eval&quot; enabled. This exposes users of</span><br><span class="line">    this app to unnecessary security risks.</span><br><span class="line"></span><br><span class="line">For more information and help, consult</span><br><span class="line">https://electronjs.org/docs/tutorial/security.</span><br><span class="line">This warning will not show up</span><br><span class="line">once the app is packaged.</span><br></pre></td></tr></table></figure>
+
+<p>在<code>main.js</code>（入口文件）添加一行代码</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">process.env[&apos;ELECTRON_DISABLE_SECURITY_WARNINGS&apos;] = &apos;true&apos;;</span><br></pre></td></tr></table></figure>
+
+]]></content>
+  </entry>
+  <entry>
     <title>flutter--模拟登录</title>
     <url>/post/flutterDemoMockLogin/</url>
     <content><![CDATA[<p><code>dart</code>官方文档：<a href="https://www.dartcn.com/" target="_blank" rel="noopener">https://www.dartcn.com/</a></p>

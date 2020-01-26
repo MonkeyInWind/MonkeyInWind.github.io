@@ -6,7 +6,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>
-    一个移动端翻页的封装 |  MonkeyInWind
+    electron &#39;unsafe-eval&#39; |  MonkeyInWind
   </title>
   
   <link rel="shortcut icon" href="/favicon.ico">
@@ -39,7 +39,7 @@ ga('send', 'pageview');
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-likeSwiper" class="article article-type-post" itemscope
+  <article id="post-ElectronUnsafeEval" class="article article-type-post" itemscope
   itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -47,7 +47,7 @@ ga('send', 'pageview');
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  一个移动端翻页的封装
+  electron &#39;unsafe-eval&#39;
 </h1>
   
 
@@ -56,8 +56,8 @@ ga('send', 'pageview');
 
     
     <div class="article-meta">
-      <a href="/post/likeSwiper/" class="article-date">
-  <time datetime="2019-09-21T03:06:25.000Z" itemprop="datePublished">2019-09-21</time>
+      <a href="/post/ElectronUnsafeEval/" class="article-date">
+  <time datetime="2020-01-26T13:01:35.000Z" itemprop="datePublished">2020-01-26</time>
 </a>
       
     </div>
@@ -78,25 +78,12 @@ ga('send', 'pageview');
       
 
       
-      <p>想写一个移动端的h5页面<br>还不想用swiper那些工具，主要是太大，我需要的仅仅只是一个翻页功能<br>所以自己写了一个  </p>
+      <p>electron 出现如下警告</p>
 <a id="more"></a>
-<p>地址：<a href="https://github.com/MonkeyInWind/switching" target="_blank" rel="noopener">https://github.com/MonkeyInWind/switching</a><br>效果预览：<a href="https://monkeyinwind.github.io/switching/" target="_blank" rel="noopener">https://monkeyinwind.github.io/switching/</a></p>
-<p>下面说一下用法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git clone https://github.com/MonkeyInWind/switching.git</span><br><span class="line">cd switching</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Electron Security Warning (Insecure Content-Security-Policy) This renderer process has either no Content Security</span><br><span class="line">    Policy set or a policy with &quot;unsafe-eval&quot; enabled. This exposes users of</span><br><span class="line">    this app to unnecessary security risks.</span><br><span class="line"></span><br><span class="line">For more information and help, consult</span><br><span class="line">https://electronjs.org/docs/tutorial/security.</span><br><span class="line">This warning will not show up</span><br><span class="line">once the app is packaged.</span><br></pre></td></tr></table></figure>
 
-<p>安装好之后</p>
-<p>开发模式</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run dev</span><br></pre></td></tr></table></figure>
-
-<p>打包</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm run build</span><br></pre></td></tr></table></figure>
-
-<p>先说一下功能：<br>可以根据手滑动的八个方向切换界面<br>左上、上、右上 、右  这四个方向是下一页<br>左下、下、右下、左   这四个方向是上一页<br>手滑向哪个方向  被滑走的界面就飞向哪个方向<br>做了手指滑出屏幕判断<br>切换界面会触发slide事件  可以做动画<br>配置了babel和postcss  </p>
-<p>用法：<br>html结构：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;div class=&quot;main_container&quot;&gt;</span><br><span class="line">    &lt;section style=&quot;background-color: red&quot;&gt;</span><br><span class="line">        &lt;div class=&quot;div1&quot;&gt;&lt;/div&gt;</span><br><span class="line">        &lt;div class=&quot;div2&quot;&gt;</span><br><span class="line">            &lt;img src=&quot;./src/img/aa.png&quot; alt=&quot;&quot;&gt;</span><br><span class="line">        &lt;/div&gt;</span><br><span class="line">    &lt;/section&gt;</span><br><span class="line">    &lt;section style=&quot;background-color: blue&quot;&gt;&lt;/section&gt;</span><br><span class="line">    &lt;section style=&quot;background-color: yellow&quot;&gt;&lt;/section&gt;</span><br><span class="line">    &lt;section style=&quot;background-color: green&quot;&gt;&lt;/section&gt;</span><br><span class="line">  &lt;/div&gt;</span><br></pre></td></tr></table></figure>
-
-<p>js:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">var Switch = new Switching(&#123;</span><br><span class="line">    target: &apos;.main_container&apos;</span><br><span class="line">&#125;);</span><br><span class="line">Switch.on(&apos;slide&apos;, function (e) &#123;</span><br><span class="line">    console.log(e);  //返回一个对象 属性包括当前界面的index   当前界面DOM节点  所有界面的DOM   滑动方向</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>在<code>main.js</code>（入口文件）添加一行代码</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">process.env[&apos;ELECTRON_DISABLE_SECURITY_WARNINGS&apos;] = &apos;true&apos;;</span><br></pre></td></tr></table></figure>
 
 
       
@@ -105,7 +92,7 @@ ga('send', 'pageview');
     </div>
     <footer class="article-footer">
       <!-- 
-      <a data-url="http://yoursite.com/post/likeSwiper/" data-id="ck5v1jtxt000dz0hsd5l4nk1j"
+      <a data-url="http://yoursite.com/post/ElectronUnsafeEval/" data-id="ck5v1jtwz0002z0hsmctbutg7"
         class="article-share-link">分享</a>
       
        -->
@@ -117,19 +104,10 @@ ga('send', 'pageview');
   
   <nav class="article-nav">
     
-      <a href="/post/centOsInstallMysql/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            centos 安装mysql8 以及常用sql语句
-          
-        </div>
-      </a>
     
-    
-      <a href="/post/installNginxInLinux/" class="article-nav-link">
+      <a href="/post/flutterDemoMockLogin/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Linux下安装Nginx</div>
+        <div class="article-nav-title">flutter--模拟登录</div>
       </a>
     
   </nav>
