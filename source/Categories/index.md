@@ -10,6 +10,7 @@
 [8、单选开关Switch、SwitchListTile](/post/flutterSwitchWidget)
 [9、单选框Radio、RadioListTile](/post/flutterRadioWidget)
 [10、输入框TextField](/post/flutterTextFieldWidget)
+[11、Scaffold以及功能组件介绍](/post/flutterScaffold)
 ### ～demo
 [1、模拟登录](/post/flutterDemoMockLogin)
 ### ～other
