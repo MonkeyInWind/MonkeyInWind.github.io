@@ -11,7 +11,7 @@
 [9、单选框Radio、RadioListTile](/post/flutterRadioWidget)
 [10、输入框TextField](/post/flutterTextFieldWidget)
 [11、Scaffold以及功能组件介绍](/post/flutterScaffold)
-[12、Row & Column线性布局、Flex弹性布局](/post/flutterRowColumnFlex)
+[12、Row & Column线性布局、Flex & Expanded弹性布局](/post/flutterRowColumnFlex)
 ### ～demo
 [1、模拟登录](/post/flutterDemoMockLogin)
 ### ～other

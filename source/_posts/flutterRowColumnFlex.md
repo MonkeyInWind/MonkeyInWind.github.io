@@ -1,5 +1,5 @@
 ---
-title: flutter--Row & Column线性布局、Flex弹性布局
+title: flutter--Row & Column线性布局、Flex & Expanded弹性布局
 date: 2020-02-01 21:58:23
 tags:
 ---
@@ -113,3 +113,53 @@ Flex({
 排列方式，两个值  
 `Axis.horizontal`：水平排列  
 `Axis.vertical`：竖直排列
+## Expanded
+```
+Expanded({
+    Key key,
+    int flex: 1,
+    @required Widget child
+})
+```
+这个很简单，只有一个`flex`和`child`。  
+`Flex`和`Expanded`与`css`里的`display: flex`、`flex: 1`效果是一样的，看一下demo。
+```
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      home: Scaffold(
+        body: Container(
+          child: Flex(
+            direction: Axis.horizontal,
+            children: <Widget>[
+              Expanded(
+                flex: 1,
+                child: Container(
+                  height: 50,
+                  color: Colors.red
+                )
+              ),
+              Expanded(
+                flex: 2,
+                child: Container(
+                  height: 50,
+                  color: Colors.blue
+                )
+              )
+            ],
+          )
+        )
+      )
+    );
+  }
+}
+```
+
+![](2.png)
+`flex`属性表示所占的比例。
