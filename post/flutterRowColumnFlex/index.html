@@ -6,7 +6,7 @@
     
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>
-    flutter--Row &amp; Column线性布局、Flex弹性布局 |  MonkeyInWind
+    flutter--Row &amp; Column线性布局、Flex &amp; Expanded弹性布局 |  MonkeyInWind
   </title>
   
   <link rel="shortcut icon" href="/favicon.ico">
@@ -47,7 +47,7 @@ ga('send', 'pageview');
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  flutter--Row &amp; Column线性布局、Flex弹性布局
+  flutter--Row &amp; Column线性布局、Flex &amp; Expanded弹性布局
 </h1>
   
 
@@ -99,6 +99,12 @@ ga('send', 'pageview');
 
 <p><code>Flex</code>只多了一个<code>direction</code>属性。</p>
 <h3 id="direction"><a href="#direction" class="headerlink" title="direction"></a>direction</h3><p>排列方式，两个值<br><code>Axis.horizontal</code>：水平排列<br><code>Axis.vertical</code>：竖直排列</p>
+<h2 id="Expanded"><a href="#Expanded" class="headerlink" title="Expanded"></a>Expanded</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Expanded(&#123;</span><br><span class="line">    Key key,</span><br><span class="line">    int flex: 1,</span><br><span class="line">    @required Widget child</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>这个很简单，只有一个<code>flex</code>和<code>child</code>。<br><code>Flex</code>和<code>Expanded</code>与<code>css</code>里的<code>display: flex</code>、<code>flex: 1</code>效果是一样的，看一下demo。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">import &apos;package:flutter/material.dart&apos;;</span><br><span class="line"></span><br><span class="line">void main() =&gt; runApp(MyApp());</span><br><span class="line"></span><br><span class="line">class MyApp extends StatelessWidget &#123;</span><br><span class="line">  // This widget is the root of your application.</span><br><span class="line">  @override</span><br><span class="line">  Widget build(BuildContext context) &#123;</span><br><span class="line">    return new MaterialApp(</span><br><span class="line">      home: Scaffold(</span><br><span class="line">        body: Container(</span><br><span class="line">          child: Flex(</span><br><span class="line">            direction: Axis.horizontal,</span><br><span class="line">            children: &lt;Widget&gt;[</span><br><span class="line">              Expanded(</span><br><span class="line">                flex: 1,</span><br><span class="line">                child: Container(</span><br><span class="line">                  height: 50,</span><br><span class="line">                  color: Colors.red</span><br><span class="line">                )</span><br><span class="line">              ),</span><br><span class="line">              Expanded(</span><br><span class="line">                flex: 2,</span><br><span class="line">                child: Container(</span><br><span class="line">                  height: 50,</span><br><span class="line">                  color: Colors.blue</span><br><span class="line">                )</span><br><span class="line">              )</span><br><span class="line">            ],</span><br><span class="line">          )</span><br><span class="line">        )</span><br><span class="line">      )</span><br><span class="line">    );</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><img src="2.png" alt><br><code>flex</code>属性表示所占的比例。</p>
 
       
       <!-- 打赏 -->
@@ -106,7 +112,7 @@ ga('send', 'pageview');
     </div>
     <footer class="article-footer">
       <!-- 
-      <a data-url="http://yoursite.com/post/flutterRowColumnFlex/" data-id="ck63o2y4m0009uxhsxlylmant"
+      <a data-url="http://yoursite.com/post/flutterRowColumnFlex/" data-id="ck63oyxmb000byxhsyv96vrmz"
         class="article-share-link">分享</a>
       
        -->
