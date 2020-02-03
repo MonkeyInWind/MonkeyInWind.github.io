@@ -13,7 +13,7 @@
 [11、Scaffold以及功能组件介绍](/post/flutterScaffold)
 [12、Row & Column线性布局、Flex & Expanded弹性布局](/post/flutterRowColumnFlex)
 [13、Wrap & Flow流式布局](/post/flutterRowFlow)
-[14、Stack & Positioned 层叠布局](/post/flutterStackPositioned)
+[14、Stack & Positioned & Align 层叠布局与定位](/post/flutterStackPositioned)
 ### ～demo
 [1、模拟登录](/post/flutterDemoMockLogin)
 ### ～other

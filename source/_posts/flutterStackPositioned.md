@@ -1,5 +1,5 @@
 ---
-title: flutter--Stack & Positioned 层叠布局
+title: flutter--Stack & Positioned & Align 层叠布局与定位
 date: 2020-02-03 20:06:01
 tags:
 ---
@@ -211,3 +211,80 @@ class MyApp extends StatelessWidget {
 
 ![](6.png)
 相对于左下角的距离是100、100.
+## Align
+这个更简单一点，只是设定子`Widget`相对于`Align`的位置。
+```
+Align({
+    Key key,
+    AlignmentGeometry alignment: Alignment.center,
+    double widthFactor,
+    double heightFactor,
+    Widget child
+})
+```
+### alignment
+子`Widget`相对于`Align`的位置。
+### widthFactor & heightFactor
+这两个相当于是系数，乘以子`Widget`的宽高，就是`Align`的尺寸。  
+```
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      home: Scaffold(
+        body: Align(
+          widthFactor: 2,
+          heightFactor: 2,
+          alignment: Alignment.bottomRight,
+          child: Container(
+            width: 50,
+            height: 50,
+            color: Colors.blue
+          )
+        )
+      )
+    );
+  }
+}
+```
+
+![](7.png)
+这里需要注意一点，就是如果`Align`的父级设有宽高`widthFactor`和`heightFactor`将市区作用，大小为最大。
+```
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatelessWidget {
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return new MaterialApp(
+      home: Scaffold(
+        body: Container(
+          width: 300,
+          height: 300,
+          color: Colors.red,
+          child: Align(
+            widthFactor: 2,
+            heightFactor: 2,
+            alignment: Alignment.bottomRight,
+            child: Container(
+              width: 50,
+              height: 50,
+              color: Colors.blue
+            )
+          )
+        )
+      )
+    );
+  }
+}
+```
+
+![](8.png)
